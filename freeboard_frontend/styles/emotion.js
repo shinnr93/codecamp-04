@@ -142,3 +142,7 @@ export const Enter = styled.button`
   background-color: yellow;
   font-size: 16px;
 `;
+
+export const ErrorMessage = styled.div`
+  color: red;
+`;
