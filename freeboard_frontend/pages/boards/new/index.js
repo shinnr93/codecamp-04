@@ -4,6 +4,7 @@
 
 // import styled from "@emotion/styled";
 import { useState } from "react";
+import { gql, useMutation } from "@apollo/client";
 import {
   NewContent,
   Writer,
@@ -35,6 +36,17 @@ import {
   ErrorMessage,
 } from "../../../styles/emotion";
 
+const CREATE_BOARD = gql`
+  mutation createBoard($createBoardInput: CreateBoardInput!) {
+    createBoard(createBoardInput: $createBoardInput) {
+      _id
+      writer
+      title
+      contents
+    }
+  }
+`;
+
 export default function BoardsNew() {
   const [mywriter, setMyWriter] = useState("");
   const [mypassword, setPW1] = useState("");
@@ -48,6 +60,7 @@ export default function BoardsNew() {
   const [mytext, setText] = useState("");
   const [myadd, setAdd] = useState("");
   const [myadd2, setAdd2] = useState("");
+  const [createBoard] = useMutation(CREATE_BOARD);
 
   function write(event) {
     setMyWriter(event.target.value);
@@ -114,6 +127,17 @@ export default function BoardsNew() {
     if (myadd2 === "") {
       setCheckAdd2("상세 주소를 적어주세요");
     }
+
+    const result = createBoard({
+      variables: {
+        createBoardInput: {
+          writer: mywriter,
+          password: mypassword,
+          title: mytitle,
+          contents: mytext,
+        },
+      },
+    });
   }
 
   return (
@@ -167,7 +191,7 @@ export default function BoardsNew() {
         </Zipwrapper>
         <Address1>
           <AddressInput type="text" onChange={add} />
-        <ErrorMessage>{checkaddress}</ErrorMessage>
+          <ErrorMessage>{checkaddress}</ErrorMessage>
         </Address1>
         <AddressInput type="text" onChange={add2} />
         <ErrorMessage>{checkaddress2}</ErrorMessage>
