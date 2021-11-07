@@ -4,6 +4,7 @@
 
 // import styled from "@emotion/styled";
 import { useState } from "react";
+import { useRouter } from 'next/router'
 import { gql, useMutation } from "@apollo/client";
 import {
   NewContent,
@@ -61,6 +62,7 @@ export default function BoardsNew() {
   const [myadd, setAdd] = useState("");
   const [myadd2, setAdd2] = useState("");
   const [createBoard] = useMutation(CREATE_BOARD);
+  const router = useRouter()
 
   function write(event) {
     setMyWriter(event.target.value);
@@ -104,41 +106,52 @@ export default function BoardsNew() {
     }
   }
 
-  function join() {
-    if (mywriter === "") {
-      setCheckwriter("이름을 적어주세요");
-    }
-    if (mypassword === "") {
-      setCheckpw("비밀번호를 적어주세요");
-    }
+  async function join() {
+    try {
 
-    if (mytitle === "") {
-      setCheckTitle("제목을 적어주세요");
-    }
-
-    if (mytext === "") {
-      setCheckText("내용을 입력해 주세요");
-    }
-
-    if (myadd === "") {
-      setCheckAdd("주소를 적어주세요");
-    }
-
-    if (myadd2 === "") {
-      setCheckAdd2("상세 주소를 적어주세요");
-    }
-
-    const result = createBoard({
-      variables: {
-        createBoardInput: {
-          writer: mywriter,
-          password: mypassword,
-          title: mytitle,
-          contents: mytext,
+      if (mywriter === "") {
+        setCheckwriter("이름을 적어주세요");
+      }
+      if (mypassword === "") {
+        setCheckpw("비밀번호를 적어주세요");
+      }
+  
+      if (mytitle === "") {
+        setCheckTitle("제목을 적어주세요");
+      }
+  
+      if (mytext === "") {
+        setCheckText("내용을 입력해 주세요");
+      }
+  
+      if (myadd === "") {
+        setCheckAdd("주소를 적어주세요");
+      }
+  
+      if (myadd2 === "") {
+        setCheckAdd2("상세 주소를 적어주세요");
+      }
+  
+      const result = await createBoard({
+        variables: {
+          createBoardInput: {
+            writer: mywriter,
+            password: mypassword,
+            title: mytitle,
+            contents: mytext,
+          },
         },
-      },
-    });
+      });
+      result.data.createBoard._id
+      router.push(`/boards/${result.data.createBoard._id}`)
+    } catch(error){
+      alert("오류")
+    }
+     
+     
   }
+
+  
 
   return (
     <div>
