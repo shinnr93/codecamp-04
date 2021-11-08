@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 export const Bodywrapper = styled.div`
   width: 1200px;
   height: 1602px;
-  border: 2px solid red;
+  border: 2px solid black;
   margin-left: 30px;
   margin-top: 30px;
 `;
@@ -22,10 +22,9 @@ export const Date = styled.div`
 `;
 
 export const Img = styled.img`
-  width: 90px;
+  width: 900px;
   height: 480px;
-
-  border: 2px solid blue;
+  border: 2px solid yellowgreen;
 `;
 
 export const Contents = styled.div``;

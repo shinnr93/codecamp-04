@@ -172,7 +172,7 @@ export default function BoardsNew() {
           <PassWordWrapper>
             <PassWord>비밀번호</PassWord>
             <HeadInput
-              type="text"
+              type="password"
               placeholder="비밀번호를 입력해주세요"
               onChange={pw}
             />

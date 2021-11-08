@@ -71,9 +71,9 @@ export default function FreeBoardPage() {
           </div>
           <WriterProfile>{data?.fetchBoard.writer}</WriterProfile>
           <Relwrapper>
-          <Previous>이전 글</Previous>
+          <Previous>◀︎이전 글</Previous>
           <List>목록</List>
-          <Next>다음 글</Next>
+          <Next>다음 글▶︎</Next>
           </Relwrapper>
         </Mainwrapper>
       </Bodywrapper>
