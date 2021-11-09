@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router'
-import { gql, useQuery } from "@apollo/client";
+import { gql, useQuery, useMutation } from "@apollo/client";
+import React from 'react';
 import {
   Bodywrapper,
   Title,
@@ -15,10 +16,11 @@ import {
   List,
   Previous,
   Relwrapper,
-  LikeImg
+  LikeImg,
+  Del
 } from "../../../styles/freeboard";
 
-const FETCH_BOARD = gql`
+const FETCH_BOARDS = gql`
     query fetchBoard($boardId: ID!){
         fetchBoard(boardId: $boardId){
         _id
@@ -28,13 +30,20 @@ const FETCH_BOARD = gql`
         createdAt
         }
     }
+`;
 
+
+const DELETE_BOARD = gql`
+mutation deleteBoard($boardId: ID!){
+  deleteBoard(boardId: $boardId)
+}
 `;
 
 export default function FreeBoardPage() {
   const router = useRouter()
+  const [deleteBoard] = useMutation(DELETE_BOARD)
 
-  const {data} = useQuery(FETCH_BOARD, {
+  const {data} = useQuery(FETCH_BOARDS, {
       variables: {
           boardId : router.query.Id
       }
@@ -46,6 +55,19 @@ export default function FreeBoardPage() {
   let createTime = create.slice(10, 15).join("")
   // create = createDate + "|" + createTime
   create = `${createDate}  | ${createTime}`
+
+  async function onClickDelete(event) {
+    try {
+      await deleteBoard({
+        variables: { boardId : data?.fetchBoard._id},
+        refetchQueries: [{ query: FETCH_BOARDS}]
+      })
+      alert("삭제되었습니다")
+      // router.push(//목록)
+    } catch(error){
+      alert(error.message)
+    }
+  }
   
   return (
     <div>
@@ -73,6 +95,9 @@ export default function FreeBoardPage() {
           <Relwrapper>
           <Previous>◀︎이전 글</Previous>
           <List>목록</List>
+          <>
+          <Del onClick={onClickDelete}>삭제</Del>
+          </>
           <Next>다음 글▶︎</Next>
           </Relwrapper>
         </Mainwrapper>

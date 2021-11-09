@@ -48,8 +48,10 @@ export const WriterProfile = styled.div`
 
 export const Previous = styled.div``;
 
-export const List = styled.div``;
-
+export const List = styled.button`
+`;
+export const Del = styled.button`
+`;
 export const Mainwrapper = styled.div`
   margin-top: 80px;
   margin-left: 130px;

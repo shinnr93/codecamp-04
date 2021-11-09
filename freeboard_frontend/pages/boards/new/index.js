@@ -226,6 +226,7 @@ export default function BoardsNew() {
           등록하기
         </Enter>
       </EnterBox>
+        
       {/* <button>등록하기</button> */}
     </div>
   );
