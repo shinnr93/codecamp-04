@@ -16,7 +16,7 @@ import {
   LikeImg,
   Del
 
-} from "./BoardWrite.styles";
+} from "./BoardDetail.styles";
 
 export default function BoardDetailUI(props){
     return(
@@ -42,7 +42,7 @@ export default function BoardDetailUI(props){
                     <ContentsWrite>
                         - Image -
                     </ContentsWrite>
-                    <Image src = "../../../images/아이유 딸기달.png" />
+                    <Image src = "../../../images/좋아요.png" />
                 </ImageWrapper>
                 <YoutubeWrapper>
                     <ContentsWrite>

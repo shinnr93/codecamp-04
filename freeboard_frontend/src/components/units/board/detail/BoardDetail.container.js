@@ -27,13 +27,12 @@ export default function BoardDetail(){
     //     //     alert("오류")
     //     // }
 
-    // } 좋아요 버튼 눌렀을 때 올라가게 / 더 배우고 해야할 듯
+    // } 
 
 
 
 
     let like = data?.fetchBoard.likeCount
-    let dislike = data?.fetchBoard.dislikeCount
 
     let create = String(data?.fetchBoard.createdAt)
     create = create.split("T").join("").split("")
@@ -61,7 +60,6 @@ export default function BoardDetail(){
                 dataId = {data?.fetchBoard._id}
                 create = {create}
                 like = {like}
-                dislike = {dislike}
                 previous = {previous}
                 next = {next}
             />

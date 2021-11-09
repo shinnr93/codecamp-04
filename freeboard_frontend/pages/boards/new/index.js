@@ -4,7 +4,7 @@
 
 // import styled from "@emotion/styled";
 import { useState } from "react";
-import { useRouter } from 'next/router'
+import { useRouter } from "next/router";
 import { gql, useMutation } from "@apollo/client";
 import {
   NewContent,
@@ -48,6 +48,8 @@ const CREATE_BOARD = gql`
   }
 `;
 
+import BoardWrite from "../../../src/components/units/board/write/BoardWrite.container";
+
 export default function BoardsNew() {
   const [mywriter, setMyWriter] = useState("");
   const [mypassword, setPW1] = useState("");
@@ -62,7 +64,7 @@ export default function BoardsNew() {
   const [myadd, setAdd] = useState("");
   const [myadd2, setAdd2] = useState("");
   const [createBoard] = useMutation(CREATE_BOARD);
-  const router = useRouter()
+  const router = useRouter();
 
   function write(event) {
     setMyWriter(event.target.value);
@@ -108,6 +110,14 @@ export default function BoardsNew() {
 
   async function join() {
     try {
+      if (
+        mywriter.length >= 1 &&
+        mypassword.length >= 1 &&
+        mytitle.length >= 1 &&
+        mytext.length >= 1
+      ) {
+        confirm("게시물을 등록하시겠습니까?");
+      }
 
       if (mywriter === "") {
         setCheckwriter("이름을 적어주세요");
@@ -115,23 +125,23 @@ export default function BoardsNew() {
       if (mypassword === "") {
         setCheckpw("비밀번호를 적어주세요");
       }
-  
+
       if (mytitle === "") {
         setCheckTitle("제목을 적어주세요");
       }
-  
+
       if (mytext === "") {
         setCheckText("내용을 입력해 주세요");
       }
-  
+
       if (myadd === "") {
         setCheckAdd("주소를 적어주세요");
       }
-  
+
       if (myadd2 === "") {
         setCheckAdd2("상세 주소를 적어주세요");
       }
-  
+
       const result = await createBoard({
         variables: {
           createBoardInput: {
@@ -142,16 +152,12 @@ export default function BoardsNew() {
           },
         },
       });
-      result.data.createBoard._id
-      router.push(`/boards/${result.data.createBoard._id}`)
-    } catch(error){
-      alert("오류")
+      result.data.createBoard._id;
+      router.push(`/boards/${result.data.createBoard._id}`);
+    } catch (error) {
+      alert("오류");
     }
-     
-     
   }
-
-  
 
   return (
     <div>
@@ -226,7 +232,7 @@ export default function BoardsNew() {
           등록하기
         </Enter>
       </EnterBox>
-        
+
       {/* <button>등록하기</button> */}
     </div>
   );

@@ -34,7 +34,7 @@ export const Youtube = styled.video``;
 export const Like = styled.div`
   display: flex;
   justify-content: center;
-  padding-top: 150px; ;
+  padding-top: 125px; ;
 `;
 
 export const LikeImg = styled.img`
@@ -46,12 +46,13 @@ export const WriterProfile = styled.div`
   border-bottom: 3px solid grey;
 `;
 
-export const Previous = styled.div``;
+export const Previous = styled.button``;
 
 export const List = styled.button`
 `;
 export const Del = styled.button`
 `;
+
 export const Mainwrapper = styled.div`
   margin-top: 80px;
   margin-left: 130px;
@@ -64,4 +65,4 @@ export const Relwrapper = styled.div`
   padding-top: 80px;
 `;
 
-export const Next = styled.div``;
+export const Next = styled.button``;
