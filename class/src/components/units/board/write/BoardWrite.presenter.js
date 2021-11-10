@@ -9,7 +9,7 @@ export default function BoardWriteUI(props) {
     
     
     return(
-    <>
+        <>
     작성자 <MyInput type="text" onChange={props.aaa} /><br />
       제목 <MyInput type="text" onChange={props.bbb}/><br />
       내용 <MyInput type="text" onChange={props.ccc}/><br />

@@ -3,21 +3,25 @@ import { gql, useQuery, useMutation } from "@apollo/client";
 import React from 'react';
 import {
   Bodywrapper,
+  Mainwrapper,
   Title,
-  Id,
+  WriterWrapper,
+  Writer,
   Date,
   Img,
+  ContentsBox,
   Contents,
   Youtube,
   Like,
-  WriterProfile,
-  Mainwrapper,
-  Next,
-  List,
-  Previous,
-  Relwrapper,
   LikeImg,
-  Del
+  WriterProfile,
+  Relwrapper,
+  Previous,
+  List,
+  Del,
+  Next
+  
+  
 } from "../../../styles/freeboard";
 
 const FETCH_BOARDS = gql`
@@ -76,9 +80,13 @@ export default function FreeBoardPage() {
           <>
             <Title>{data?.fetchBoard.title}</Title>
             {/* <Id>{data?.fetchBoard._id}</Id> */}
+            <WriterWrapper>
+              작성자
+              </WriterWrapper>
             <Date>{create}</Date>
           </>
-          <Img />
+          <ContentsBox>
+          <Img src="../../../images/제주도2.jpeg" />
           <Contents>
             {data?.fetchBoard.contents}
             </Contents>
@@ -91,6 +99,7 @@ export default function FreeBoardPage() {
           <div>
             <Like><LikeImg src="../../../images/좋아요.png" /></Like>
           </div>
+          </ContentsBox>
           <WriterProfile>{data?.fetchBoard.writer}</WriterProfile>
           <Relwrapper>
           <Previous>◀︎이전 글</Previous>

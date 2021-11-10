@@ -22,7 +22,4 @@ const { data } = useQuery(FETCH_BOARDS)
 
 
 
-
-
-
 }
