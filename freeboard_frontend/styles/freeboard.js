@@ -75,8 +75,3 @@ export const Del = styled.button`
 `;
 
 export const Next = styled.button``;
-
-
-
-
-

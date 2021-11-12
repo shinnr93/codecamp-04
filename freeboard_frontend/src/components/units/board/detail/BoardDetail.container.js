@@ -46,11 +46,17 @@ export default function BoardDetail(){
         router.push(`/boards/61886ea95d30bc002aa079db`)
     }
 
-    async function next() {
+    function next() {
         // 다음글 버튼 눌렀을 때
         router.push(`/boards/61869a985d30bc002aa079aa`)
 
+    }  
+
+    function list() {
+        router.push(`/boards/list`)
     }
+
+    
     return(
         <>
             <BoardDetailUI 
@@ -62,6 +68,7 @@ export default function BoardDetail(){
                 like = {like}
                 previous = {previous}
                 next = {next}
+                list= {list}
             />
         </>
     )

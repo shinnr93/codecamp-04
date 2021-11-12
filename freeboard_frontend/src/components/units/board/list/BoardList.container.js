@@ -1,25 +1,19 @@
-import { useQuery } from "@apollo/client"
-import BoardListUI from "./BoardList.presenter"
-import { FETCH_BOARDS } from "./BoardList.queries"
+import { useQuery } from "@apollo/client";
+import BoardListUI from "./BoardList.presenter";
+import { FETCH_BOARDS, FETCH_BOARDS_OF_THE_BEST } from "./BoardList.queries";
 
 
 
 
-export default function BoardList(){
+export default function BoardList() {
+  const { data } = useQuery(FETCH_BOARDS);
+  const { data: best } = useQuery(FETCH_BOARDS_OF_THE_BEST);
 
-const { data } = useQuery(FETCH_BOARDS)
-
-
-
-
-    return(
-        <BoardListUI 
-        // delete = {onClickDelete}
-        data = {data}
-        />
-
-    )
-
-
-
+  return (
+    <BoardListUI
+      // delete = {onClickDelete}
+      data={data}
+      best={best}
+    />
+  );
 }
