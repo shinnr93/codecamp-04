@@ -53,20 +53,15 @@ export default function BoardWrite(props) {
 
   async function xxx() {
     // alert("수정하기 버튼을 누르셨습니다")
-    const myVariables = {
-      number: Number(router.query.myNumber),
-    };
-
-    if (myWriter !== "") myVariables.writer = myWriter;
-
-    if (myTitle !== "") myVariables.title = myTitle;
-
-    if (myContents !== "") myVariables.contents = myContents;
     const result = await updateBoard({
-      variables: myVariables,
+      variables: {
+        number: Number(router.query.myNumber),
+        writer: myWriter,
+        title: myTitle,
+        contents: myContents,
+      },
     });
     console.log(result);
-
     router.push(`/09-02-boards2/${router.query.myNumber}`);
   }
 
@@ -80,7 +75,6 @@ export default function BoardWrite(props) {
         qqq={myQqq}
         ggg={props.isEdit}
         xxx={xxx}
-        data={props.data}
       />
     </>
   );

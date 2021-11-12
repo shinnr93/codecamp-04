@@ -1,43 +1,38 @@
 import BoardWriteUI from "./BoardWrite.presenter";
 import { useMutation } from "@apollo/client";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { CREATE_BOARD, UPDATE_BOARD } from "./BoardWrite.queries";
 import { useRouter } from "next/router";
+import { IBoardWriteProps, IMyVariables } from "./BoardWrite.types";
 
-export default function BoardWrite(props) {
+export default function BoardWrite(props: IBoardWriteProps) {
   const router = useRouter();
 
-  const [myQqq, setMyQqq] = useState(false);
+  const [myQqq, setMyQqq] = useState<boolean>(false);
   const [myWriter, setMyWriter] = useState("");
   const [myTitle, setMyTitle] = useState("");
   const [myContents, setMyContents] = useState("");
-  const [createBoard] = useMutation(CREATE_BOARD);
+  const [createBoard] = useMutation(CREATE_BOARD); 
   const [updateBoard] = useMutation(UPDATE_BOARD);
 
-  function onChangeMyWriter(event) {
+  function onChangeMyWriter(event: ChangeEvent<HTMLInputElement>) {
     setMyWriter(event.target.value);
-    if (event.target.value !== "" && (myTitle !== "") & (myContents !== "")) {
+    if (event.target.value !== "" && myTitle !== "" && myContents !== "") {
       setMyQqq(true);
-    } else {
-      setMyQqq(false);
     }
   }
 
-  function onChangeMyTitle(event) {
+  function onChangeMyTitle(event: ChangeEvent<HTMLInputElement>) {
     setMyTitle(event.target.value);
-    if (myWriter !== "" && (event.target.value !== "") & (myContents !== "")) {
+    if (myWriter !== "" && event.target.value !== "" && myContents !== "") {
       setMyQqq(true);
-    } else {
-      setMyQqq(false);
     }
   }
 
-  function onChangeMyContents(event) {
+  function onChangeMyContents(event: ChangeEvent<HTMLInputElement>) {
     setMyContents(event.target.value);
-    if (myWriter !== "" && (myTitle !== "") & (event.target.value !== "")) {
+    if (myWriter !== "" && myTitle !== "" && event.target.value !== "") {
       setMyQqq(true);
-    } else {
-      setMyQqq(false);
     }
   }
 
@@ -53,20 +48,19 @@ export default function BoardWrite(props) {
 
   async function xxx() {
     // alert("수정하기 버튼을 누르셨습니다")
-    const myVariables = {
+
+    const myVariables: IMyVariables = {
       number: Number(router.query.myNumber),
     };
 
     if (myWriter !== "") myVariables.writer = myWriter;
-
     if (myTitle !== "") myVariables.title = myTitle;
-
     if (myContents !== "") myVariables.contents = myContents;
+
     const result = await updateBoard({
-      variables: myVariables,
+      variables: myVariables
     });
     console.log(result);
-
     router.push(`/09-02-boards2/${router.query.myNumber}`);
   }
 

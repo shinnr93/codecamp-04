@@ -1,7 +1,7 @@
 import { MyInput, MyButton } from './BoardWrite.styles'
 
 export default function BoardWriteUI(props) {
-    console.log(props.data)
+    
     return(
     <>
     작성자 <MyInput type="text" onChange={props.aaa} defaultValue={props.data?.fetchBoard.writer}/><br />
