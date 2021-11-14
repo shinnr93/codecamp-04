@@ -1,10 +1,10 @@
-import { useMutation} from "@apollo/client"
+import { useMutation, useQuery} from "@apollo/client"
 import FreeBoardWriteUI from "./BoardWrite.presenter"
-import { CREATE_BOARD } from "./BoardWrite.queries"
+import { CREATE_BOARD, FETCH_BOARD, UPDATE_BOARD } from "./BoardWrite.queries"
 import { useState } from 'react'
 import {useRouter} from 'next/router'
 
-export default function BoardWrite(){
+export default function BoardWrite(props){
 
 
     const [mywriter, setMyWriter] = useState("");
@@ -20,8 +20,27 @@ export default function BoardWrite(){
     const [myadd, setAdd] = useState("");
     const [myadd2, setAdd2] = useState("");
     const [createBoard] = useMutation(CREATE_BOARD);
+    const [updateBoard] = useMutation(UPDATE_BOARD)
     const router = useRouter();
+    const {data} = useQuery(FETCH_BOARD, {variables:{boardId: router.query.BoardId}})
   
+    async function edit(){
+      console.log(router.query.BoardId)
+      const updateVariables = {
+        updateBoardInput: {},
+        password: mypassword,
+        boardId: router.query.BoardId
+      }
+
+      if(mytitle !== "") updateVariables.updateBoardInput.title = mytitle
+      if(mytext !== "") updateVariables.updateBoardInput.contents = mytext
+
+      const result = await updateBoard({
+        variables: updateVariables
+      })
+      router.push(`/boards/detail/${router.query.BoardId}`)
+    }
+
     function write(event) {
       setMyWriter(event.target.value);
       if (event.target.value !== "") {
@@ -109,7 +128,7 @@ export default function BoardWrite(){
           },
         });
         result.data.createBoard._id;
-        router.push(`/boards/${result.data.createBoard._id}`);
+        router.push(`/boards/detail/${result.data.createBoard._id}`);
       } catch (error) {
         alert(error.message);
       }
@@ -134,6 +153,9 @@ export default function BoardWrite(){
       add2={add2}
       checkaddress2={checkaddress2}
       join={join}
+      edit={edit}
+      isEdit={props.isEdit}
+      data={data}
       />
     
     

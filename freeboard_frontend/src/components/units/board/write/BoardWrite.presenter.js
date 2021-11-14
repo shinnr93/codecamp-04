@@ -9,7 +9,7 @@ export default function FreeBoardWriteUI(props){
         <>
         <div>
       <h1>
-        <S.NewContent>게시물 등록</S.NewContent>
+        <S.NewContent>{props.isEdit ? "수정" : "등록"}페이지</S.NewContent>
       </h1>
       <S.Bodywrapper>
         <S.IdPassWord>
@@ -19,6 +19,7 @@ export default function FreeBoardWriteUI(props){
               type="text"
               placeholder="이름을 적어주세요"
               onChange={props.write}
+              defaultValue={props.data?.fetchBoard.writer}
             />
             <S.ErrorMessage>{props.checkwriter}</S.ErrorMessage>
           </S.WriterWrapper>
@@ -38,6 +39,7 @@ export default function FreeBoardWriteUI(props){
             type="text"
             placeholder="제목을 작성해주세요"
             onChange={props.head}
+            defaultValue={props.data?.fetchBoard.title}
           />
           <S.ErrorMessage>{props.checktitle}</S.ErrorMessage>
         </S.TitleBox>
@@ -47,6 +49,7 @@ export default function FreeBoardWriteUI(props){
             type="text"
             placeholder="내용을 작성해주세요"
             onChange={props.innertext}
+            defaultValue={props.data?.fetchBoard.contents}
           />
           <S.ErrorMessage>{props.checktext}</S.ErrorMessage>
         </div>
@@ -75,9 +78,11 @@ export default function FreeBoardWriteUI(props){
         사진
       </S.Bodywrapper>
       <S.EnterBox>
-        <S.Enter type="text" name="등록" onClick={props.join}>
-          등록하기
-        </S.Enter>
+        {/* <S.Enter type="text" name="등록" onClick={props.join}>
+          {props.isEdit ? "수정" : "등록"}하기
+        </S.Enter> */}
+        {props.isEdit && <S.Enter onClick={props.edit}>수정하기</S.Enter>}
+        {!props.isEdit && <S.Enter onClick={props.join} >등록하기</S.Enter>}
       </S.EnterBox>
 
       {/* <button>등록하기</button> */}

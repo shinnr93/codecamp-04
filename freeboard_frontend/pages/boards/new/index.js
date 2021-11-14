@@ -3,39 +3,9 @@
 //아이디 부분 가로, 높이 설정, but 전체껍데기는 가로 길이만 설정, 높이는 설정ㄴ
 
 // import styled from "@emotion/styled";
-import { useState } from "react";
-import { useRouter } from "next/router";
+
 import { gql, useMutation } from "@apollo/client";
-import {
-  NewContent,
-  Writer,
-  PassWord,
-  TitleBox,
-  Title,
-  Content,
-  Enter,
-  Bodywrapper,
-  IdPassWord,
-  WriterWrapper,
-  PassWordWrapper,
-  ContentBox,
-  HeadInput,
-  TitleInput,
-  AddressInput,
-  ZipCode,
-  ZipCodeSearch,
-  Zipwrapper,
-  Address1,
-  Youtube,
-  YoutubeLink,
-  Photo,
-  PictureButton,
-  Main,
-  EnterBox,
-  Home,
-  Picture,
-  ErrorMessage,
-} from "../../../styles/emotion";
+
 
 const CREATE_BOARD = gql`
   mutation createBoard($createBoardInput: CreateBoardInput!) {
@@ -55,7 +25,7 @@ export default function BoardsNew() {
 
   return (
     <>
-    <BoardWrite />
+    <BoardWrite isEdit={false}/>
     </>
   );
 }

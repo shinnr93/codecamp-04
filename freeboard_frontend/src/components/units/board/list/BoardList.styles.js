@@ -17,6 +17,15 @@ export const Column = styled.div`
 
 `
 
+export const ColumnTitle = styled.div`
+    width: 20%;
+    cursor: pointer;
+    :hover{
+        text-decoration: underline;
+        color: blue
+    };
+`
+
 export const BestofList = styled.div`
 `;
 
