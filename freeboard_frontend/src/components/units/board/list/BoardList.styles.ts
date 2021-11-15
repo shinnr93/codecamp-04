@@ -14,8 +14,12 @@ flex-direction: row;
 
 export const Column = styled.div`
     width: 20%;
-
 `
+
+export const ColumnWriter = styled.div`
+    width: 20%;
+`;
+
 
 export const ColumnTitle = styled.div`
     width: 20%;
@@ -27,6 +31,7 @@ export const ColumnTitle = styled.div`
 `
 
 export const BestofList = styled.div`
+    
 `;
 
 export const List = styled.div`
@@ -35,4 +40,7 @@ export const List = styled.div`
 export const Delete = styled.div`
 `;
 
+export const Line = styled.div`
+height: 20px;
 
+`;
