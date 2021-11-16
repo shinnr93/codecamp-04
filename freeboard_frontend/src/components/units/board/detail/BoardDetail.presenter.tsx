@@ -65,11 +65,10 @@ export default function BoardDetailUI(props) {
             </S.LikeCountButton>
             <S.Count>{props.like}</S.Count>
           </S.LikeWrapper>
-          
+
+          <S.ThisAddress>글 아이디 : {props.dataId}</S.ThisAddress>
           <S.RemoteControler>
-          
             <S.RemoteControler1>
-            <S.ThisAddress>글 아이디 : {props.dataId}</S.ThisAddress>
               <S.Previous onClick={props.previous}>이전글</S.Previous>
               <S.List onClick={props.list}>목록</S.List>
               <S.Next onClick={props.next}>다음글</S.Next>

@@ -23,6 +23,7 @@
 
 
 import BoardDetail from "../../../../src/components/units/board/detail/BoardDetail.container"
+import BoardCommentPage from "../../../../src/components/units/comment/list/BoardCommentList.container"
 
 
   
@@ -134,6 +135,7 @@ export default function BoardDetailUI(){
     //컨테이너랑 인덱스js랑 연결
     //컨테이너에서 프리젠터 연결
     <><BoardDetail />
+    <BoardCommentPage />
     </>
   )
 

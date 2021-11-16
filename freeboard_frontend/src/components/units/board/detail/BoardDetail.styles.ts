@@ -10,10 +10,10 @@ export const BodyWrapper = styled.div`
 
 export const Mainwrapper = styled.div`
   margin-top: 50px;
-  margin-left: 130px;
-  margin-right: 140px;
+  margin-left: 120px;
+  margin-right: 120px;
   height: 1500px;
-  background-color: pink;
+  background-color: nune;
 `;
 
 export const Title = styled.div`
@@ -27,104 +27,106 @@ export const WriterWrapper = styled.div``;
 //   font-size: 24px;
 // `;
 
-export const Writer = styled.div``;
+export const Writer = styled.div`
+font-size: 30px;
+`;
 
 export const Date = styled.div`
   font-size: 20px;
-  `;
+`;
 
-export const ContentsBox = styled.div``;
-
+export const ContentsBox = styled.div`
+background-color: black;
+`;
 
 export const ImageWrapper = styled.div`
-width: 996px;
-height: 480px;
-padding-top: 30px;
-padding-left: 102px;
-padding-right: 102px;
+  width: 996px;
+  height: 480px;
+  padding-top: 30px;
+  padding-left: 102px;
+  padding-right: 102px;
 `;
 
 export const Image = styled.img`
   /* width: 927px;
   height: 480px;
   border: 10px solid yellowgreen; */
-  `;
+`;
 
 export const ContentsText = styled.div`
-height: 300px;
+  height: 300px;
+  background-color: pink;
+  margin-top: 55px;
+  
 `;
 
 export const YoutubeWrapper = styled.div`
 `;
 
 export const Youtube = styled.video`
+width: 486px;
+height: 240px;
+
 `;
 
 export const LikeWrapper = styled.div`
-display: flex;
-justify-content: center;
-padding-top: 200px;
-background-color: yellow;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  background-color: yellow;
+  margin-bottom: 70px;
 `;
 
 export const Like = styled.div`
   display: flex;
   justify-content: center;
-  background-color: 
-  `;
+  /* background-color:  */
+`;
 
 export const LikeImg = styled.img`
   width: 70px;
-  height: 70px;
-  ;
- 
+  height: 70px; ;
 `;
 
 export const RemoteControler = styled.div`
-  padding-top: 120px;
+  /* padding-top: 120px; */
   display: flex;
   justify-content: space-between;
 `;
 
-export const ThisAddress = styled.div`
- 
-`;
-
-
-
-
+export const ThisAddress = styled.div``;
 
 export const ContentsWrite = styled.div`
+background-color: blue;
 `;
 
 export const Contents = styled.div`
+
 `;
-
-
 
 export const LikeCountButton = styled.button`
-width: 40px;
-height: 28px;
+  width: 70px;
+  height: 70px;
+  border: none;
+  background-color: transparent;
 `;
 
-export const Count = styled.div`
-`;
+export const Count = styled.div``;
 
-export const WriterProfile = styled.div`
-  border-bottom: 10px solid grey;
-  `;
+// export const WriterProfile = styled.div`
+//   border-bottom: 10px solid grey;
+// `;
 
 export const Relwrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  
 `;
 
-export const RemoteControler1 = styled.div`
-`;
-  
-export const RemoteControler2 = styled.div`
-`;
+export const RemoteControler1 = styled.div``;
+
+export const RemoteControler2 = styled.div``;
 
 export const Previous = styled.button`
   width: 70px;
@@ -134,8 +136,7 @@ export const Previous = styled.button`
 export const List = styled.button`
   width: 70px;
   height: 40px;
-  `;
-
+`;
 
 export const Del = styled.button`
   width: 70px;
@@ -151,5 +152,3 @@ export const Edit = styled.button`
   width: 70px;
   height: 40px;
 `;
-
-
