@@ -2,7 +2,7 @@ import { useQuery } from "@apollo/client"
 import router from "next/router"
 import { FETCH_BOARD_COMMENTS } from "./BoardCommentList.queries"
 
-export default function BoardCommentPage() {
+export default function BoardCommentList() {
 
 
 const {data} = useQuery(FETCH_BOARD_COMMENTS, {

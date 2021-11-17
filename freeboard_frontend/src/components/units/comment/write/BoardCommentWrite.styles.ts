@@ -51,3 +51,5 @@ export const Button = styled.button`
     color: white;
     cursor: pointer;
 `;
+
+export const Contents = styled.div``;
