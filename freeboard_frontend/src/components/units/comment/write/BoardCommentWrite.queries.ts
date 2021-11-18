@@ -10,6 +10,9 @@ mutation createBoardComment(
       boardId: $boardId
     ) {
       _id
+      writer
+      contents
+      rating
     }
   }
 `;

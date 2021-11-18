@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { ISubmitButtonProps } from './BoardWrite.types'
 
 export const Bodywrapper = styled.div`
   padding-left: 101px;
@@ -60,7 +61,7 @@ export const Content = styled.div`
   padding-bottom: 16px;
 `;
 
-export const ContentBox = styled.input`
+export const ContentBox = styled.textarea`
   width: 996px;
   height: 480px;
 `;
@@ -83,20 +84,26 @@ export const ZipCode = styled.input`
   width: 77px;
   height: 52px;
   margin-right: 16px;
+  padding-bottom: 16px;
+  border: 1px solid #bdbdbd;
 `;
-export const ZipCodeSearch = styled.button`
+export const SearchButton = styled.button`
   width: 124px;
   height: 52px;
+  padding-bottom: 16px;
   background-color: black;
+  cursor: pointer;
   font-size: 16px;
   color: white;
 `;
 
 export const Address = styled.input`
   width: 40px;
+  border: 1px solid #bdbdbd;
 `;
 export const Address1 = styled.div`
   padding-bottom: 30px;
+  
 `;
 
 export const Youtube = styled.div`
@@ -136,11 +143,23 @@ export const EnterBox = styled.div`
   padding-bottom: 100px;
 `;
 
-export const Enter = styled.button`
-  width: 179px;
+export const Enter= styled.button`
+  /* width: 179px;
   height: 52px;
   background-color: yellow;
+  font-size: 16px; */
+  width: 179px;
+  height: 52px;
+  border: none;
   font-size: 16px;
+  font-weight: 500;
+  margin-left: 12px;
+  margin-right: 12px;
+  background-color: ${(props: ISubmitButtonProps) => props.isActive ? 'yellow' : 'none'};
+  
+  :hover {
+    cursor: ${(props: ISubmitButtonProps) => props.isActive ? 'pointer' : 'default'};
+  }
 `;
 
 export const ErrorMessage = styled.div`

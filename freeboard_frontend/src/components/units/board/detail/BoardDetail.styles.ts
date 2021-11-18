@@ -36,13 +36,13 @@ export const Date = styled.div`
 `;
 
 export const ContentsBox = styled.div`
-background-color: black;
+background-color: nune;
 `;
 
 export const ImageWrapper = styled.div`
   width: 996px;
-  height: 480px;
-  padding-top: 30px;
+  height: 460px;
+  padding-top: 16px;
   padding-left: 102px;
   padding-right: 102px;
 `;
@@ -54,8 +54,7 @@ export const Image = styled.img`
 `;
 
 export const ContentsText = styled.div`
-  height: 300px;
-  background-color: pink;
+  height: 280px;
   margin-top: 55px;
   
 `;
@@ -66,7 +65,7 @@ export const YoutubeWrapper = styled.div`
 export const Youtube = styled.video`
 width: 486px;
 height: 240px;
-
+margin-left: 230px;
 `;
 
 export const LikeWrapper = styled.div`
@@ -74,9 +73,8 @@ export const LikeWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 100px;
-  background-color: yellow;
-  margin-bottom: 70px;
+  margin-top: 10px;
+  margin-bottom: 80px;
 `;
 
 export const Like = styled.div`
@@ -99,7 +97,7 @@ export const RemoteControler = styled.div`
 export const ThisAddress = styled.div``;
 
 export const ContentsWrite = styled.div`
-background-color: blue;
+
 `;
 
 export const Contents = styled.div`

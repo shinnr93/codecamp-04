@@ -1,6 +1,8 @@
+import Layout from "../src/components/commons/layout"
 import "../styles/globals.css";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
-import "~antd/dist/antds.css";
+import "antd/dist/antd.css";
+
 
 function MyApp({ Component, pageProps }) {
   const client = new ApolloClient({
@@ -10,7 +12,9 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <ApolloProvider client={client}>
-      <Component {...pageProps} />;
+      <Layout>
+        <Component {...pageProps} />
+        </Layout>
     </ApolloProvider>
   );
 }

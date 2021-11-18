@@ -14,12 +14,17 @@ export default function BoardList() {
     router.push(`/boards/detail/${event.target.id}`)
   }
 
+  function boardWrite(event){
+    router.push(`/boards/new/${event.target.id}`)
+  }
+
   return (
     <BoardListUI
       // delete = {onClickDelete}
       data={data}
       best={best}
       boardDetail={boardDetail}
+      boardWrite={boardWrite}
     />
   );
 }

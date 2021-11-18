@@ -2,8 +2,9 @@ import * as S from "./BoardWrite.styles";
 import DaumPostcode from "react-daum-postcode";
 import { Modal, Button } from "antd";
 import { useState } from "react";
+import { IBoardWriteUIProps } from "./BoardWrite.types";
 
-export default function FreeBoardWriteUI(props) {
+export default function BoardWriteUI(props: IBoardWriteUIProps) {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const showModal = () => {
@@ -19,6 +20,11 @@ export default function FreeBoardWriteUI(props) {
   };
   return (
     <>
+    {props.isOpen && (
+      <Modal visible={true}>
+        <DaumPostcode onComplete={props.onCompleteAddressSearch} />
+      </Modal>
+    )}
       <div>
         <h1>
           <S.NewContent>{props.isEdit ? "수정" : "등록"}페이지</S.NewContent>
@@ -67,8 +73,17 @@ export default function FreeBoardWriteUI(props) {
           </div>
           <S.Home>주소</S.Home>
           <S.Zipwrapper>
-            <S.ZipCode type="text" placeholder="07520" />
-            
+            <S.ZipCode placeholder="07250" 
+                       readOnly
+                       value={
+                         props.zipcode ||
+                         props.data?.fetchBoard.boardAddress?.zipcode || 
+                         ""
+                        }
+                      />
+            <S.SearchButton onClick={props.onClickAddressSearch}>
+                        우편번호 검색
+            </S.SearchButton>
           </S.Zipwrapper>
           <S.Address1>
             <S.AddressInput type="text" onChange={props.add} />
@@ -90,11 +105,18 @@ export default function FreeBoardWriteUI(props) {
           사진
         </S.Bodywrapper>
         <S.EnterBox>
-          {/* <S.Enter type="text" name="등록" onClick={props.join}>
+          <S.Enter type="text" name="등록" onClick={props.join}>
           {props.isEdit ? "수정" : "등록"}하기
-        </S.Enter> */}
-          {props.isEdit && <S.Enter onClick={props.edit}>수정하기</S.Enter>}
+        </S.Enter> 
+        
+          {/* {props.isEdit && <S.Enter onClick={props.edit}>수정하기</S.Enter>}
           {!props.isEdit && <S.Enter onClick={props.join}>등록하기</S.Enter>}
+          {/* <S.SubmitButton
+          onClick={props.isEdit ? props.onClickUpdate : props.onClickSubmit}
+          isActive={props.isEdit ? true : !props.isActive}
+          >
+          {props.isEdit ? "수정하기" : "등록하기"}
+          </S.SubmitButton> */}
         </S.EnterBox>
 
         {/* <button>등록하기</button> */}
