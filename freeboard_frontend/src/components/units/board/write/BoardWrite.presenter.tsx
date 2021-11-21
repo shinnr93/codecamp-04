@@ -6,23 +6,31 @@ import { IBoardWriteUIProps } from "./BoardWrite.types";
 
 export default function BoardWriteUI(props: IBoardWriteUIProps) {
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
+  const [zoneCode, setZoneCode] = useState("")
+  const [address, setAddress] = useState("")
 
-  const showModal = () => {
-    setIsModalVisible(true);
-  };
+  function onClickAddressButton(){
+    setIsOpen(true)
+  }
 
-  const handleOk = () => {
-    setIsModalVisible(false);
-  };
+  function onToggleModal(){
+    setIsOpen(false)
+  }
 
-  const handleCancel = () => {
-    setIsModalVisible(false);
-  };
+  function onHandleComplete(data){
+    console.log(data)
+    setZoneCode(data.zonecode)
+   setAddress(data.address)
+   setIsOpen(false)
+  }
+
+
   return (
     <>
-    {props.isOpen && (
-      <Modal visible={true}>
-        <DaumPostcode onComplete={props.onCompleteAddressSearch} />
+    {isOpen && (
+      <Modal visible={true} onOk={onToggleModal} onCancel={onToggleModal}>
+        <DaumPostcode onComplete={onHandleComplete} />
       </Modal>
     )}
       <div>
@@ -73,20 +81,16 @@ export default function BoardWriteUI(props: IBoardWriteUIProps) {
           </div>
           <S.Home>주소</S.Home>
           <S.Zipwrapper>
-            <S.ZipCode placeholder="07250" 
+            <S.ZipCode defaultValue={zoneCode}
                        readOnly
-                       value={
-                         props.zipcode ||
-                         props.data?.fetchBoard.boardAddress?.zipcode || 
-                         ""
-                        }
                       />
-            <S.SearchButton onClick={props.onClickAddressSearch}>
+            <S.SearchButton onClick={onClickAddressButton}>
                         우편번호 검색
             </S.SearchButton>
           </S.Zipwrapper>
           <S.Address1>
-            <S.AddressInput type="text" onChange={props.add} />
+            <S.AddressInput type="text" onChange={props.add}
+            defaultValue={address}/>
             <S.ErrorMessage>{props.checkaddress}</S.ErrorMessage>
           </S.Address1>
           <S.AddressInput type="text" onChange={props.add2} />

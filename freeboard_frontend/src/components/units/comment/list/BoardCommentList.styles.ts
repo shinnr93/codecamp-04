@@ -1,13 +1,20 @@
 import styled from "@emotion/styled"
 import { Rate } from "antd"
 
-export const ItemWrapper = styled.div``;
+export const ItemWrapper = styled.div`
+    width: 1200px;
+    margin-left: 34px;
+    margin-top: 20px;
+`;
 
-export const FlexWrapper = styled.div``;
+export const FlexWrapper = styled.div`
+`;
 
 export const Avatar = styled.img``;
 
-export const MainWrapper = styled.div``;
+export const MainWrapper = styled.div`
+
+`;
 
 export const WriterWrapper = styled.div``;
 

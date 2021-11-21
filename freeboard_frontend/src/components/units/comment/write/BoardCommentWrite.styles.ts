@@ -25,7 +25,7 @@ export const ContentsWrapper = styled.div`
 `;
 
 export const Input = styled.input`
-  width: 180px;
+  width: 100px;
   height: 52px;
   padding-left: 20px;
   border: none;
@@ -55,6 +55,7 @@ export const Button = styled.button`
 `;
 
 export const Contents = styled.input`
-  width: 1000px;
+  width: 900px;
+  border: none;
   
 `;

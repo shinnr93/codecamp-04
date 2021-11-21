@@ -52,10 +52,12 @@ export default function BoardCommentListUIItem(props: any) {
         refetchQueries: [
           {
             query: FETCH_BOARD_COMMENTS,
-            variables: { boardId: router.query.boardId },
+            variables: { boardId: router.query.BoardId },
           },
         ],
       });
+      alert("삭제되었습니다")
+      setIsOpenDeleteModal(false)
     } catch (error) {
       Modal.error({ content: error.message });
     }

@@ -8,7 +8,7 @@ export function getDate(myDate){
 
 
 
-    return `${year}-${month}-${day} / ${hour}:${minute}`
+    return `${year}-${month}-${day}`
 
 }
 
