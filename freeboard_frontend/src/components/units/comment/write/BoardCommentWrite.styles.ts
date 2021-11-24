@@ -28,6 +28,7 @@ export const Input = styled.input`
   width: 100px;
   height: 52px;
   padding-left: 20px;
+  font-size: 18px;
   border: none;
   border-bottom: 1px solid lightgrey;
 `;
@@ -55,7 +56,7 @@ export const Button = styled.button`
 `;
 
 export const Contents = styled.input`
-  width: 900px;
+  width: 1100px;
   border: none;
-  
+  font-size: 18px;
 `;

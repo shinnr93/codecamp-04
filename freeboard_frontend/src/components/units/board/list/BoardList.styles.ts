@@ -69,7 +69,7 @@ export const Footer = styled.div`
 export const PencilIcon = styled.img``;
 
 export const ButtonWrapper = styled.div`
-  padding-left: 376px;
+  padding-left: 300px;
 `;
 
 export const WriteButton = styled.button`
@@ -104,9 +104,35 @@ export const DeleteButton = styled.button`
   }
 `;
 
-export const Prev = styled.button``;
+export const Prev = styled.button`
+  width: 90px;
+  height: 52px;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  cursor: pointer;
 
-export const NextButton = styled.button``;
+  :hover {
+    background-color: #E3D7FC;
+  }
+`;
+
+export const NextButton = styled.button`
+  width: 90px;
+  height: 52px;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  cursor: pointer;
+
+  :hover {
+    background-color: #E3D7FC;
+  }
+`;
 
 // export const Column = styled.div`
 //     /* width: 20%; */

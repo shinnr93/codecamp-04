@@ -18,8 +18,8 @@ const BodyWrapper = styled.div`
 
 const Sidebar = styled.div`
     width: 200px;
-    height: 700px;
-    background-color: violet;
+    height: 900px;
+    background-color: yellow;
 `;
 
 const HIDDEN_HEADERS = [
