@@ -8,6 +8,7 @@ const FETCH_PRODUCT = gql`
             name
             detail
             price
+            # 이게 그래프큐엘 주석임
         }
   }
   `
@@ -19,7 +20,7 @@ export default function DynamicProductReadPage(){
         variables: { productId: router.query.myId }
     })
 
-    console.log(data)
+    // console.log(data) // 자바스크립트 주석
 
 
     return(

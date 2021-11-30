@@ -6,6 +6,7 @@ import {
   IQueryFetchBoardsArgs,
 } from "../../../../commons/types/generated/types";
 import { FETCH_BOARDS } from "./BoardList.queries";
+import 'antd/dist/antd.css';
 
 import {
   Wrapper,
@@ -20,9 +21,9 @@ import {
   PencilIcon,
   ButtonWrapper,
   WriteButton,
-  DeleteButton,
   Prev,
   NextButton,
+  // LeftOutlined
 } from "./BoardList.styles";
 
 const FETCH_BOARDS_COUNT = gql`
@@ -98,9 +99,7 @@ export default function BoardListUI(props) {
             <PencilIcon src="/images/board/list/write.png" />
             게시물 등록하기
           </WriteButton>
-          <DeleteButton onClick={props.onClickDelete}>
-            ✕&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;게시물 삭제하기
-          </DeleteButton>
+          {/* <LeftOutlined /> */}
         </ButtonWrapper>
         <Prev onClick={onClickPrevPage}>이전페이지</Prev>
         {new Array(10).fill(1).map(

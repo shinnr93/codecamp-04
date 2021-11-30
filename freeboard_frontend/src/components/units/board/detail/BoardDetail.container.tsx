@@ -1,7 +1,12 @@
 import { useQuery, useMutation } from "@apollo/client";
 import { useRouter } from "next/router";
 import BoardDetailUI from "./BoardDetail.presenter";
-import { DELETE_BOARD, FETCH_BOARD, LIKE_BOARD } from "./BoardDetail.queries";
+import {
+  DELETE_BOARD,
+  FETCH_BOARD,
+  LIKE_BOARD,
+  DISLIKE_BOARD,
+} from "./BoardDetail.queries";
 
 export default function BoardDetail() {
   const router = useRouter();
@@ -11,8 +16,8 @@ export default function BoardDetail() {
     },
   });
   const [deleteBoard] = useMutation(DELETE_BOARD);
-  const [likeBoard] = useMutation(LIKE_BOARD)
-  // const [likeBoard] = useMutation(LIKE_BOARD)
+  const [likeBoard] = useMutation(LIKE_BOARD);
+  const [dislikeBoard] = useMutation(DISLIKE_BOARD);
 
   // async function likePlus(){
 
@@ -31,6 +36,7 @@ export default function BoardDetail() {
   // }
 
   let like = data?.fetchBoard.likeCount;
+  let dislike = data?.fetchBoard.dislikeCount;
 
   let create = String(data?.fetchBoard.createdAt);
   create = create.split("T").join("").split("");
@@ -53,7 +59,7 @@ export default function BoardDetail() {
   }
 
   function edit() {
-    router.push(`/boards/detail/${router.query.BoardId}/edit`)
+    router.push(`/boards/detail/${router.query.BoardId}/edit`);
   }
 
   function onClickDelete() {
@@ -63,23 +69,33 @@ export default function BoardDetail() {
           boardId: data?.fetchBoard._id,
         },
       });
-      alert("삭제되었습니다")
-      router.push(`/boards/list`)
+      alert("삭제되었습니다");
+      router.push(`/boards/list`);
     } catch (error) {
       alert(error.message);
     }
   }
 
-  function likeButton(){
+  function likeButton() {
     likeBoard({
       variables: {
-        boardId: data?.fetchBoard._id
+        boardId: data?.fetchBoard._id,
       },
       refetchQueries: [
-        {query: FETCH_BOARD, variables:{boardId: data?.fetchBoard._id}}
-      ]
-    })
+        { query: FETCH_BOARD, variables: { boardId: data?.fetchBoard._id } },
+      ],
+    });
+  }
 
+  function dislikeButton() {
+    dislikeBoard({
+      variables: {
+        boardId: data?.fetchBoard._id,
+      },
+      refetchQueries: [
+        { query: FETCH_BOARD, variables: { boardId: data?.fetchBoard._id } },
+      ],
+    });
   }
 
   return (
@@ -91,12 +107,14 @@ export default function BoardDetail() {
         dataId={data?.fetchBoard._id}
         create={create}
         like={like}
+        dislike={dislike}
         previous={previous}
         next={next}
         list={list}
         delete={onClickDelete}
         edit={edit}
         likeButton={likeButton}
+        dislikeButton={dislikeButton}
       />
     </>
   );

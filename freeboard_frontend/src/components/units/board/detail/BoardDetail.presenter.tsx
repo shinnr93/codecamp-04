@@ -25,6 +25,7 @@
 
 // } from "./BoardDetail.styles";
 
+import { Tooltip } from "antd";
 import router from "next/router";
 import * as S from "./BoardDetail.styles";
 
@@ -59,12 +60,16 @@ export default function BoardDetailUI(props) {
               ></S.Youtube>
             </S.YoutubeWrapper>
           </S.ContentsBox>
-          <S.LikeWrapper>
+          <S.Wrapper>
             <S.LikeCountButton onClick={props.likeButton}>
               <S.LikeImg src="../../../images/좋아요.png" />
             </S.LikeCountButton>
-            <S.Count>{props.like}</S.Count>
-          </S.LikeWrapper>
+            <S.DislikeIcon
+              src="/images/싫어요.jpeg"
+              onClick={props.dislikeButton}
+            />
+            <S.Count>{props.like - props.dislike}</S.Count>
+          </S.Wrapper>
 
           <S.ThisAddress>글 아이디 : {props.dataId}</S.ThisAddress>
           <S.RemoteControler>

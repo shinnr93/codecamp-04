@@ -88,24 +88,9 @@ export const WriteButton = styled.button`
   }
 `;
 
-export const DeleteButton = styled.button`
-  width: 171px;
-  height: 52px;
-  background-color: white;
-  border-radius: 15px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  cursor: pointer;
-
-  :hover {
-    background-color: #f5f2fc;
-  }
-`;
 
 export const Prev = styled.button`
-  width: 90px;
+  /* width: 90px;
   height: 52px;
   background-color: white;
   display: flex;
@@ -116,11 +101,11 @@ export const Prev = styled.button`
 
   :hover {
     background-color: #E3D7FC;
-  }
+  } */
 `;
 
 export const NextButton = styled.button`
-  width: 90px;
+  /* width: 90px;
   height: 52px;
   background-color: white;
   display: flex;
@@ -131,8 +116,10 @@ export const NextButton = styled.button`
 
   :hover {
     background-color: #E3D7FC;
-  }
+  } */
 `;
+
+// export const LeftOutlined = styled.div``
 
 // export const Column = styled.div`
 //     /* width: 20%; */

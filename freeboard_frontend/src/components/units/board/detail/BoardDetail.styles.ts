@@ -68,7 +68,7 @@ height: 240px;
 margin-left: 230px;
 `;
 
-export const LikeWrapper = styled.div`
+export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -82,6 +82,13 @@ export const Like = styled.div`
   justify-content: center;
   /* background-color:  */
 `;
+
+export const DislikeIcon = styled.img`
+  font-size: 24px;
+  color: #828282;
+  margin: 0px 20px;
+  cursor: pointer;
+`
 
 export const LikeImg = styled.img`
   width: 70px;
