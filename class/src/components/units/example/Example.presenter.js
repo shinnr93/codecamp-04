@@ -1,4 +1,7 @@
-export default function ExampleUI(props){
+import { withAuth } from "../../commons/hocs/withAuth"
+
+
+function ExampleUI(props){
     return(
         <div>
         <h1>{props.isEdit ? "수정" : "등록"}페이지</h1>
@@ -8,5 +11,7 @@ export default function ExampleUI(props){
     </div>
     )
 }
+
+export default withAuth(ExampleUI)
 
     

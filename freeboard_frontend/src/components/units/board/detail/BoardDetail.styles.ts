@@ -28,7 +28,7 @@ export const WriterWrapper = styled.div``;
 // `;
 
 export const Writer = styled.div`
-font-size: 30px;
+  font-size: 30px;
 `;
 
 export const Date = styled.div`
@@ -36,46 +36,47 @@ export const Date = styled.div`
 `;
 
 export const ContentsBox = styled.div`
-background-color: nune;
+  background-color: nune;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const ImageWrapper = styled.div`
   width: 996px;
   height: 460px;
   padding-top: 16px;
-  padding-left: 102px;
+  /* padding-left: 102px; */
   padding-right: 102px;
 `;
 
 export const Image = styled.img`
   /* width: 927px;
-  height: 480px;
   border: 10px solid yellowgreen; */
+  /* height: 480px; */
 `;
 
 export const ContentsText = styled.div`
   height: 280px;
   margin-top: 55px;
-  
 `;
 
-export const YoutubeWrapper = styled.div`
-`;
+export const YoutubeWrapper = styled.div``;
 
 export const Youtube = styled.video`
-width: 486px;
-height: 240px;
-margin-left: 230px;
+  width: 486px;
+  height: 240px;
+  margin-left: 230px;
 `;
 
 export const Wrapper = styled.div`
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   justify-content: center;
   align-items: center;
   margin-top: 10px;
-  margin-bottom: 80px;
+  margin-bottom: 87px;
 `;
+
 
 export const Like = styled.div`
   display: flex;
@@ -83,16 +84,17 @@ export const Like = styled.div`
   /* background-color:  */
 `;
 
+
 export const DislikeIcon = styled.img`
-  font-size: 24px;
-  color: #828282;
   margin: 0px 20px;
   cursor: pointer;
-`
+  height: 70px;
+`;
 
 export const LikeImg = styled.img`
   width: 70px;
-  height: 70px; ;
+  height: 70px;
+  cursor: pointer;
 `;
 
 export const RemoteControler = styled.div`
@@ -103,13 +105,9 @@ export const RemoteControler = styled.div`
 
 export const ThisAddress = styled.div``;
 
-export const ContentsWrite = styled.div`
+export const ContentsWrite = styled.div``;
 
-`;
-
-export const Contents = styled.div`
-
-`;
+export const Contents = styled.div``;
 
 export const LikeCountButton = styled.button`
   width: 70px;
@@ -143,7 +141,7 @@ export const List = styled.button`
   height: 40px;
 `;
 
-export const Del = styled.button`
+export const Delete = styled.button`
   width: 70px;
   height: 40px;
 `;

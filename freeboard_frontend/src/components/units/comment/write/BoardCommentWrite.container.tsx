@@ -189,7 +189,8 @@ export default function BoardCommentWrite(props: IBoardCommentWriteProps) {
       alert("비밀번호가 입력되지 않았습니다.");
       return;
     }
-
+    console.log(myContents)
+    console.log(props.el?._id)
     try {
       if (!props.el?._id) return;
       await updateBoardComment({
@@ -201,7 +202,7 @@ export default function BoardCommentWrite(props: IBoardCommentWriteProps) {
         refetchQueries: [
           {
             query: FETCH_BOARD_COMMENTS,
-            variables: { boardId: router.query.boardId },
+            variables: { boardId: router.query.BoardId },
           },
         ],
       });

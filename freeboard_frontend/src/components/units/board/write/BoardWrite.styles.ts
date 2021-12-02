@@ -34,6 +34,7 @@ export const IdPassWord = styled.div`
 export const HeadInput = styled.input`
   width: 486px;
   height: 52px;
+  border: 1px solid #bdbdbd;
 `;
 
 export const Writer = styled.div`
@@ -47,6 +48,7 @@ export const PassWord = styled.div`
 export const TitleInput = styled.input`
   width: 996px;
   height: 52px;
+  border: 1px solid #bdbdbd;
 `;
 
 export const TitleBox = styled.div``;
@@ -64,6 +66,7 @@ export const Content = styled.div`
 export const ContentBox = styled.textarea`
   width: 996px;
   height: 480px;
+  border: 1px solid #bdbdbd;
 `;
 
 export const Home = styled.div`
@@ -74,6 +77,7 @@ export const Home = styled.div`
 export const AddressInput = styled.input`
   width: 996px;
   height: 52px;
+  border: 1px solid #bdbdbd;
 `;
 
 export const Zipwrapper = styled.div`
@@ -83,14 +87,16 @@ export const Zipwrapper = styled.div`
 export const ZipCode = styled.input`
   width: 77px;
   height: 52px;
-  margin-right: 16px;
-  padding-bottom: 16px;
+  /* margin-right: 16px; */
+  padding-left: 16px;
   border: 1px solid #bdbdbd;
 `;
+
 export const SearchButton = styled.button`
   width: 124px;
   height: 52px;
-  padding-bottom: 16px;
+  /* padding-bottom: 16px; */
+  margin-left: 16px;
   background-color: black;
   cursor: pointer;
   font-size: 16px;
@@ -101,6 +107,7 @@ export const Address = styled.input`
   width: 40px;
   border: 1px solid #bdbdbd;
 `;
+
 export const Address1 = styled.div`
   padding-bottom: 30px;
   
@@ -114,23 +121,35 @@ export const Youtube = styled.div`
 export const YoutubeLink = styled.input`
   width: 996px;
   height: 45.78px;
+  border: 1px solid #bdbdbd;
 `;
 
-export const Photo = styled.div`
+export const PhotoWrapper = styled.div`
   padding-top: 40px;
   padding-bottom: 16px;
+  width: 996px;
 `;
 
-export const Picture = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 282px;
+// export const Picture = styled.div`
+//   display: flex;
+//   justify-content: space-between;
+//   width: 282px;
+// `;
+
+export const Label = styled.div`
+  padding-bottom: 16px;
+  font-size: 16px;
+  font-weight: 500;
 `;
 
 export const PictureButton = styled.button`
   width: 78px;
   height: 78px;
   background-color: #bdbdbd;
+  margin-right: 24px;
+  outline: none;
+  border: none;
+  cursor: pointer;
 `;
 
 export const Main = styled.div`

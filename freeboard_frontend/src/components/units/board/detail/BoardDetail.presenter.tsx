@@ -62,10 +62,10 @@ export default function BoardDetailUI(props) {
           </S.ContentsBox>
           <S.Wrapper>
             <S.LikeCountButton onClick={props.likeButton}>
-              <S.LikeImg src="../../../images/좋아요.png" />
+              <S.LikeImg src="../../../images/board/detail/진짜좋아요.png" />
             </S.LikeCountButton>
             <S.DislikeIcon
-              src="/images/싫어요.jpeg"
+              src="/images/board/detail/진짜싫어요.png"
               onClick={props.dislikeButton}
             />
             <S.Count>{props.like - props.dislike}</S.Count>
@@ -79,7 +79,7 @@ export default function BoardDetailUI(props) {
               <S.Next onClick={props.next}>다음글</S.Next>
             </S.RemoteControler1>
             <S.RemoteControler2>
-              <S.Del onClick={props.delete}>삭제</S.Del>
+              <S.Delete onClick={props.delete}>삭제</S.Delete>
               <S.Edit onClick={props.edit}>수정</S.Edit>
             </S.RemoteControler2>
           </S.RemoteControler>
