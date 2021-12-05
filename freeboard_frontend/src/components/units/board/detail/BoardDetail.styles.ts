@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 export const BodyWrapper = styled.div`
   width: 1200px;
   height: 1602px;
-  border: 2px solid black;
+  border: 1px solid lightgrey;
   margin-left: 30px;
   margin-top: 30px;
 `;
@@ -13,7 +13,7 @@ export const Mainwrapper = styled.div`
   margin-left: 120px;
   margin-right: 120px;
   height: 1500px;
-  background-color: nune;
+  background-color: none;
 `;
 
 export const Title = styled.div`

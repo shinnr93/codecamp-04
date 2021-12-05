@@ -4,7 +4,7 @@
 
 // import styled from "@emotion/styled";
 
-import { gql, useMutation } from "@apollo/client";
+import { gql } from "@apollo/client";
 
 
 const CREATE_BOARD = gql`

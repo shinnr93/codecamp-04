@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types */
 import Button01 from "../../commons/buttons/01/Button01";
 import Input01 from "../../commons/inputs/input01";
+import { IMyformUIProps } from "./Myform.types";
 
-export default function MyformUI(props) {
+export default function MyformUI(props: IMyformUIProps) {
   
   return (
     <form onSubmit={props.handleSubmit(props.onClickLogin)}>

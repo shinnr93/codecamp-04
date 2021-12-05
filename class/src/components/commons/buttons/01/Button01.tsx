@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import styled from "@emotion/styled";
 // import { IMyButtonProps } from "../../../units/board/write4/BoardWrite.types"
 
@@ -12,5 +11,9 @@ const MyButton = styled.button`
 `;
 
 export default function Button01(props) {
-  return <MyButton type={props.type} isValid={props.isValid}>{props.name}</MyButton>;
+  return (
+    <MyButton type={props.type} isValid={props.isValid}>
+      {props.name}
+    </MyButton>
+  );
 }

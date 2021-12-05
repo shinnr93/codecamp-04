@@ -3,7 +3,10 @@ export interface FormValues {
     myPassword: string;
   }
   
-export interface IMyButtonProps {
-    isValid: boolean;
+export interface IMyformUIProps {
+    handleSubmit: any;
+    register: any;
+    formState: any;
+    onClickLogin: (data: FormValues) => void;
   }
   

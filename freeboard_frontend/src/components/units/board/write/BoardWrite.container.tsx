@@ -136,7 +136,7 @@ export default function BoardWrite(props) {
 
   const onClickUpload = () => {};
   useEffect(() => {
-    alert("나니리나리나리나린라ㅣㄴ라ㅣㄴ라닐 ");
+    
   }, []);
   return (
     <>
