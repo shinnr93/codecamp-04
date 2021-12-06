@@ -4,6 +4,7 @@ import Header from "./header/Header.container";
 import Banner from "./banner/Banner.container";
 import Navigation from "./navigation/Navigation.container";
 import Footer from "./footer/Footer.container";
+import Sidebar from "./sidebar/Sidebar.container";
 import { useRouter } from "next/router";
 
 const Wrapper = styled.div`
@@ -16,11 +17,7 @@ const BodyWrapper = styled.div`
     display: flex;
 `;
 
-const Sidebar = styled.div`
-    width: 200px;
-    height: 900px;
-    background-color: yellow;
-`;
+
 
 const HIDDEN_HEADERS = [
     "/12-05-modal-address-state-prev"
@@ -47,7 +44,7 @@ export default function Layout(props: ILayoutProps) {
             <Banner />
             <Navigation />
             <BodyWrapper>
-                <Sidebar>Sidebar</Sidebar>
+                {/* <Sidebar>Sidebar</Sidebar> */}
                 <Body>{props.children}</Body>
             </BodyWrapper>
             {!isHiddenFooter && <Footer />}

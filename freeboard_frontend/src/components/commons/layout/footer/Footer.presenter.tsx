@@ -1,6 +1,5 @@
-import { Footer } from "./Footer.styles"
+import { Footer } from "./Footer.styles";
 
-export default function FooterUI(){
-    return <Footer>footer</Footer>
-
+export default function FooterUI() {
+  return <Footer>made by nari</Footer>;
 }

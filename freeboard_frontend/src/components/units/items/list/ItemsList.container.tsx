@@ -8,7 +8,7 @@ export default function ItemsList (){
     const {data} = useQuery(FETCH_USED_ITEMS)
     
     const onClickDetail = (event) => {
-        router.push(`/items/${event.target.id}`)
+        router.push(`/market/items/${event.target.id}`)
     }
 
 

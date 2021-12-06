@@ -22,13 +22,13 @@ export default function SignIn() {
           email: myId,
           password: myPassword,
         },
-      });
+      });`~`
       localStorage.setItem(
         "accessToken",
         result.data?.loginUser.accessToken || ""
       );
       setAccessToken(result.data?.loginUser.accessToken)
-      router.push(`/items/list`)
+      router.push(`/market/items/list`)
     } catch (error) {
       alert("나리");
     }

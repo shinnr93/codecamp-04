@@ -19,7 +19,7 @@ const Title = styled.div`
 const Img = styled.img`
   border-radius: 50%;
   width: 800px;
-  height: 550px;
+  height: 700px;
 `;
 
 export default function MyCatPage() {
