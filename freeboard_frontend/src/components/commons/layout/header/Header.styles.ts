@@ -10,7 +10,7 @@ export const Header = styled.div`
 
 export const LogWrapper = styled.div`
   display: flex;
-  width: 100%;
+  width: 90%;
   height: 100%;
   justify-content: flex-end;
   align-items: flex-end;

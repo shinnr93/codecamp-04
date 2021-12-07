@@ -2,10 +2,10 @@ import { useMutation } from "@apollo/client";
 import router from "next/router";
 import { useContext, useState } from "react";
 import { GlobalContext } from "../../../../../pages/_app";
-import SignInUI from "./signIn.presenter";
-import { LOGIN_USER } from "./signIn.queries";
+import LoginUI from "./Login.presenter";
+import { LOGIN_USER} from "./Login.queries";
 
-export default function SignIn() {
+export default function Login() {
     const {accessToken, setAccessToken} = useContext(GlobalContext) 
   const [myId, setMyId] = useState("");
   const [myPassword, setMyPassword] = useState("");
@@ -35,7 +35,7 @@ export default function SignIn() {
   };
 
   return (
-    <SignInUI
+    <LoginUI
       onChangeMyId={onChangeMyId}
       onChangeMyPassword={onChangeMyPassword}
       onClickLogin={onClickLogin}
