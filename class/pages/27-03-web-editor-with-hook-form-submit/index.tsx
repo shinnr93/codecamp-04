@@ -68,7 +68,7 @@ export default function WebEditorReactHookFormSubmitPage() {
             title: data.title,
             password: data.password,
             contents: data.contents,
-          },                               
+          },
         },
       });
       router.push(`27-04-web-editor-detail/${result.data?.createBoard._id}`);
