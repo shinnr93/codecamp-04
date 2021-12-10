@@ -2,5 +2,7 @@ export default function LoginSuccessPage(){
 
 
 
-    return()
+    return(
+        
+    )
 }
