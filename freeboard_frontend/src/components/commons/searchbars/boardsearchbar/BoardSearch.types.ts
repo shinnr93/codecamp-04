@@ -20,3 +20,4 @@ export interface IBoardSearchUIProps{
     
     onChangeSearchbar: (event: ChangeEvent<HTMLInputElement>) => void;
 }
+

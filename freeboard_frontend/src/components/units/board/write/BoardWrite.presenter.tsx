@@ -111,13 +111,12 @@ export default function BoardWriteUI(props: IBoardWriteUIProps) {
           <input type="radio" name="mainsetting" checked="checked" /> 유튜브
           <input type="radio" name="mainsetting" />
           사진
-        </S.Bodywrapper>
-        <S.EnterBox>
-          <S.Enter type="text" name="등록" onClick={props.join}>
-            {props.isEdit ? "수정" : "등록"}하기
-          </S.Enter>
+          <S.EnterBox>
+            <S.Enter type="text" name="등록" onClick={props.join}>
+              {props.isEdit ? "수정" : "등록"}하기
+            </S.Enter>
 
-          {/* {props.isEdit && <S.Enter onClick={props.edit}>수정하기</S.Enter>}
+            {/* {props.isEdit && <S.Enter onClick={props.edit}>수정하기</S.Enter>}
           {!props.isEdit && <S.Enter onClick={props.join}>등록하기</S.Enter>}
           {/* <S.SubmitButton
           onClick={props.isEdit ? props.onClickUpdate : props.onClickSubmit}
@@ -125,7 +124,8 @@ export default function BoardWriteUI(props: IBoardWriteUIProps) {
           >
           {props.isEdit ? "수정하기" : "등록하기"}
           </S.SubmitButton> */}
-        </S.EnterBox>
+          </S.EnterBox>
+        </S.Bodywrapper>
 
         {/* <button>등록하기</button> */}
       </div>

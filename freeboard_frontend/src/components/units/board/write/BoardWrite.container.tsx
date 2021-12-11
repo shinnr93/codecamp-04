@@ -34,6 +34,7 @@ export default function BoardWrite(props) {
 
     if (mytitle !== "") updateVariables.updateBoardInput.title = mytitle;
     if (mytext !== "") updateVariables.updateBoardInput.contents = mytext;
+    // if (myadd2 !== "") updateVariables.updateBoardInput.contents = myadd2;
 
     const result = await updateBoard({
       variables: updateVariables,
@@ -109,13 +110,13 @@ export default function BoardWrite(props) {
         setCheckText("내용을 입력해 주세요");
       }
 
-      if (myadd === "") {
-        setCheckAdd("주소를 적어주세요");
-      }
+      // if (myadd === "") {
+      //   setCheckAdd("주소를 적어주세요");
+      // }
 
-      if (myadd2 === "") {
-        setCheckAdd2("상세 주소를 적어주세요");
-      }
+      // if (myadd2 === "") {
+      //   setCheckAdd2("상세 주소를 적어주세요");
+      // }
 
       const result = await createBoard({
         variables: {

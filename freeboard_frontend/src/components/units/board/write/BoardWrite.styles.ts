@@ -1,17 +1,28 @@
 import styled from "@emotion/styled";
-import { ISubmitButtonProps } from './BoardWrite.types'
+import { ISubmitButtonProps } from "./BoardWrite.types";
 
 export const Bodywrapper = styled.div`
-  padding-left: 101px;
+  width: 1200px;
+  height: 1700px;
+  border: 1px solid black;
+  margin: 100px;
   padding-top: 80px;
-  padding-right: 103px;
+  padding-bottom: 100px;
+  padding-left: 102px;
+  padding-right: 102px;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  border: none;
+  box-shadow: 0px 0px 10px gray;
 `;
 
 export const NewContent = styled.div`
-  padding-left: 512px;
-  padding-top: 60px;
-  color: black;
-  font-size: 40px;
+  padding-left: 600px;
+  padding-top: 70px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 36px;
+  font-weight: bold;
 `;
 
 export const TextWrapper = styled.div`
@@ -54,12 +65,12 @@ export const TitleInput = styled.input`
 export const TitleBox = styled.div``;
 
 export const Title = styled.div`
-  padding-top: 40px;
+  padding-top: 10px;
   padding-bottom: 16px;
 `;
 
 export const Content = styled.div`
-  padding-top: 40px;
+  padding-top: 20px;
   padding-bottom: 16px;
 `;
 
@@ -110,17 +121,16 @@ export const Address = styled.input`
 
 export const Address1 = styled.div`
   padding-bottom: 30px;
-  
 `;
 
 export const Youtube = styled.div`
-  padding-top: 37px;
+  padding-top: 20px;
   padding-bottom: 14.09px;
 `;
 
 export const YoutubeLink = styled.input`
   width: 996px;
-  height: 45.78px;
+  height: 53.78px;
   border: 1px solid #bdbdbd;
 `;
 
@@ -158,11 +168,10 @@ export const Main = styled.div`
 `;
 
 export const EnterBox = styled.div`
-  padding-left: 510px;
-  padding-bottom: 100px;
+  padding-left: 410px;
 `;
 
-export const Enter= styled.button`
+export const Enter = styled.button`
   /* width: 179px;
   height: 52px;
   background-color: yellow;
@@ -172,15 +181,19 @@ export const Enter= styled.button`
   border: none;
   font-size: 16px;
   font-weight: 500;
-  margin-left: 12px;
-  margin-right: 12px;
-  background-color: ${(props: ISubmitButtonProps) => props.isActive ? 'yellow' : 'none'};
-  
+  /* margin-left: 12px;
+  margin-right: 12px; */
+  background-color: ${(props: ISubmitButtonProps) =>
+    props.isActive ? "yellow" : "none"};
+
   :hover {
-    cursor: ${(props: ISubmitButtonProps) => props.isActive ? 'pointer' : 'default'};
+    cursor: ${(props: ISubmitButtonProps) =>
+      props.isActive ? "pointer" : "default"};
   }
 `;
 
 export const ErrorMessage = styled.div`
+  padding-top: 10px;
+  font-size: 14px;
   color: red;
 `;
