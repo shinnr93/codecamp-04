@@ -6,7 +6,7 @@ import {
   IQueryFetchBoardsArgs,
 } from "../../../../commons/types/generated/types";
 import { FETCH_BOARDS } from "./BoardList.queries";
-import 'antd/dist/antd.css';
+// import 'antd/dist/antd.css';
 
 import {
   Wrapper,
@@ -25,7 +25,11 @@ import {
   NextButton,
   // LeftOutlined
 } from "./BoardList.styles";
+import BoardSearch from "../../../commons/searchbars/boardsearchbar/BoardSearch.container";
+import { Input, Space } from 'antd';
+import { v4 as uuidv4} from "uuid"
 
+const { Search } = Input;
 const FETCH_BOARDS_COUNT = gql`
   query fetchBoardsCount {
     fetchBoardsCount
@@ -67,6 +71,7 @@ export default function BoardListUI(props) {
 
   return (
     <Wrapper>
+      <div>{props.isSearch ? "검색" : "목록"}</div>
       <TableTop />
       <Row>
         <ColumnHeaderBasic>번호</ColumnHeaderBasic>
@@ -74,8 +79,27 @@ export default function BoardListUI(props) {
         <ColumnHeaderBasic>작성자</ColumnHeaderBasic>
         <ColumnHeaderBasic>날짜</ColumnHeaderBasic>
       </Row>
-      {data?.fetchBoards.map((el, index) => (
+      {/* {data?.fetchBoards.map((el, index) => (
         <Row key={el._id}>
+          <ColumnBasic>
+            <input type="checkbox" />
+            {index + 1}
+          </ColumnBasic>
+          {new Array(1).fill(1).map(
+            (_, index) =>
+              startPage + index <= lastPage && (
+                <ColumnTitle id={el._id} onClick={props.boardDetail}>
+                  {el.title}
+                </ColumnTitle>
+              )
+          )}
+          <ColumnBasic>{el.writer}</ColumnBasic>
+          <ColumnBasic>{getDate(el.createdAt)}</ColumnBasic>
+        </Row>
+      ))} */}
+
+      {props.searchData?.fetchBoards.map((el, index) => (
+        <Row key={uuidv4()}>
           <ColumnBasic>
             <input type="checkbox" />
             {index + 1}
@@ -117,6 +141,14 @@ export default function BoardListUI(props) {
         )}
         <NextButton onClick={onClickNextPage}>다음페이지</NextButton>
       </Footer>
+      <Search
+        placeholder="검색어를 입력해 주세요"
+        allowClear
+        enterButton="Search"
+        size="large"
+        onChange={props.mySearch}
+        onSearch={props.onSearch}
+      />
     </Wrapper>
   );
 }

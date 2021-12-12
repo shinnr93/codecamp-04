@@ -44,7 +44,7 @@ export default function BoardDetailUI(props) {
           <S.ContentsBox>
             <S.ImageWrapper>
               <S.ContentsWrite>Image</S.ContentsWrite>
-              <S.Image src="../../../images/제주도2.jpeg" />
+              <S.Image src={`https://storage.googleapis.com/${props.dataImage?.[0]}`} />
             </S.ImageWrapper>
             <S.ContentsText>
               <S.ContentsWrite>Contents</S.ContentsWrite>

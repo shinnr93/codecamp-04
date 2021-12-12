@@ -1,9 +1,5 @@
-import Login from "../../src/components/units/sign/Login/Login.container";
+import Login from "../../src/components/units/user/login/Login.container";
 
-export default function SignInPage(){
-
-
-    return(
-        <Login />
-    )
+export default function SignInPage() {
+  return <Login />;
 }

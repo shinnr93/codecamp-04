@@ -105,6 +105,7 @@ export default function BoardDetail() {
         dataWriter={data?.fetchBoard.writer}
         dataContents={data?.fetchBoard.contents}
         dataId={data?.fetchBoard._id}
+        dataImage={data?.fetchBoard.images}
         create={create}
         like={like}
         dislike={dislike}

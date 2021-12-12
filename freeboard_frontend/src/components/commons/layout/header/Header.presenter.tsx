@@ -5,7 +5,7 @@ import {
   SignUpButton,
 } from "./Header.styles";
 
-export default function HeaderUI() {
+export default function HeaderUI(props) {
   return (
     <Header>
       <div>
@@ -13,8 +13,8 @@ export default function HeaderUI() {
       </div>
 
       <LogWrapper>
-        <SignInButton></SignInButton>
-        <SignUpButton></SignUpButton>
+        <SignInButton onClick={props.onClickLogin}>login</SignInButton>
+        <SignUpButton onClick={props.onClickSignUp}>signup</SignUpButton>
       </LogWrapper>
     </Header>
   );

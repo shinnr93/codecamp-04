@@ -50,6 +50,8 @@ export const ImageWrapper = styled.div`
 `;
 
 export const Image = styled.img`
+width: 630px;
+height: 480px;
   /* width: 927px;
   border: 10px solid yellowgreen; */
   /* height: 480px; */

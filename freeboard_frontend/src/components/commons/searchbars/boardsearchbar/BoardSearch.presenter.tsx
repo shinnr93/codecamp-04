@@ -1,16 +1,18 @@
 import * as S from "./BoardSearch.styles";
 import { IBoardSearchUIProps } from "./BoardSearch.types";
+import { Input, Space } from "antd";
 
-export default function BoardSearchUI(props: IBoardSearchUIProps){
-
-    return(
-        <S.SearchBar>
-            {/* <S.FireFilledIcon /> */}
-            <S.AudioOutlinedInput />
-            <S.SearchbarInput 
-                placeholder="검색어를 입력해주세요"
-                onChange={props.onChangeSearchbar}
-            />
-        </S.SearchBar>
-    )
+const { Search } = Input;
+export default function BoardSearchUI(props: IBoardSearchUIProps) {
+  return (
+    <>
+      <Search
+        placeholder="검색어를 입력해 주세요"
+        allowClear
+        enterButton="Search"
+        size="large"
+        onSearch={props.onSearch}
+      />
+    </>
+  );
 }

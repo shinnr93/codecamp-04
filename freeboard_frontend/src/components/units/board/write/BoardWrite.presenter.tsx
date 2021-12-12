@@ -3,7 +3,6 @@ import DaumPostcode from "react-daum-postcode";
 import { Modal } from "antd";
 import { useState } from "react";
 import { IBoardWriteUIProps } from "./BoardWrite.types";
-import { v4 as uuidv4 } from "uuid";
 
 export default function BoardWriteUI(props: IBoardWriteUIProps) {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -100,7 +99,7 @@ export default function BoardWriteUI(props: IBoardWriteUIProps) {
           <S.YoutubeLink type="text" placeholder="링크를 복사해주세요." />
           <S.PhotoWrapper>
             <S.Label>사진 첨부</S.Label>
-            <button onClick={props.upload}>등록하기</button>
+            <input type="file" onClick={props.upload} />등록하기
           </S.PhotoWrapper>
           {/* <S.Picture>
             <S.PictureButton></S.PictureButton>
@@ -108,9 +107,11 @@ export default function BoardWriteUI(props: IBoardWriteUIProps) {
             <S.PictureButton></S.PictureButton>
           </S.Picture> */}
           <S.Main>메인 설정</S.Main>
+          <div>
           <input type="radio" name="mainsetting" checked="checked" /> 유튜브
           <input type="radio" name="mainsetting" />
           사진
+          </div>
           <S.EnterBox>
             <S.Enter type="text" name="등록" onClick={props.join}>
               {props.isEdit ? "수정" : "등록"}하기

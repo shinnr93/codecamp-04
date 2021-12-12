@@ -4,10 +4,16 @@ import HeaderUI from "./Header.presenter"
 export default function Header(){
     const router = useRouter()
 
-    function onClickMySignin(){
-        router.push("/signin")
+    function onClickLogin(){
+        router.push("/login")
+    }
+
+    function onClickSignUp(){
+        router.push("/signup")
     }
 
     return <HeaderUI 
-    onClickMySignIn={onClickMySignin}/>
+    onClickLogin={onClickLogin}
+    onClickSignUp={onClickSignUp}
+    />
 }

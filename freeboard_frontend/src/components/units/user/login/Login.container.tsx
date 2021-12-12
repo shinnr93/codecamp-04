@@ -3,10 +3,10 @@ import router from "next/router";
 import { useContext, useState } from "react";
 import { GlobalContext } from "../../../../../pages/_app";
 import LoginUI from "./Login.presenter";
-import { LOGIN_USER} from "./Login.queries";
+import { LOGIN_USER } from "./Login.queries";
 
 export default function Login() {
-    const {accessToken, setAccessToken} = useContext(GlobalContext) 
+  const { accessToken, setAccessToken } = useContext(GlobalContext);
   const [myId, setMyId] = useState("");
   const [myPassword, setMyPassword] = useState("");
   const [loginUser] = useMutation(LOGIN_USER);
@@ -22,15 +22,16 @@ export default function Login() {
           email: myId,
           password: myPassword,
         },
-      });`~`
+      });
+      
       localStorage.setItem(
         "accessToken",
         result.data?.loginUser.accessToken || ""
       );
-      setAccessToken(result.data?.loginUser.accessToken)
-      router.push(`/market/items/list`)
+      setAccessToken(result.data?.loginUser.accessToken);
+      router.push(`/cats`);
     } catch (error) {
-      alert("나리");
+      alert(error.message);
     }
   };
 

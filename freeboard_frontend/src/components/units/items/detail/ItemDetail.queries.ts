@@ -8,6 +8,20 @@ export const FETCH_USED_ITEM = gql`
       remarks
       contents
       price
+      tags
+      createdAt
+      pickedCount
+      seller {
+        name
+        picture
+      }
+      useditemAddress {
+        lat
+        lng
+        address
+        addressDetail
+      }
+      images
     }
   }
 `;

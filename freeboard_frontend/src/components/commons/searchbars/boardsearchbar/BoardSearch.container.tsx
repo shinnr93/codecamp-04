@@ -14,6 +14,12 @@ export default function BoardSearch(props: IBoardSearchProps){
         getDebounce(event.target.value);
     }
 
-    return <BoardSearchUI onChangeSearchbar={onChangeSearchbar}/>;
+    function onSearch(){
+               
+    }
+
+    return <BoardSearchUI onChangeSearchbar={onChangeSearchbar}
+    onSearch={onSearch}
+    />;
     
 }
