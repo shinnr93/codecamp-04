@@ -9,17 +9,19 @@ import {
 import "antd/dist/antd.css";
 import { createUploadLink } from "apollo-upload-client";
 import { createContext, useEffect, useState } from "react";
-
+import { getAccessToken } from "../src/commons/libraries/getAccessToken";
 export const GlobalContext = createContext(null);
 
 function MyApp({ Component, pageProps }) {
   const [accessToken, setAccessToken] = useState("");
   const myValue = { accessToken, setAccessToken };
-  
+
   useEffect(() => {
-    const accessToken = localStorage.getItem("accessToken") || "";
-    if (accessToken) setAccessToken(accessToken);
-  });
+    // const accessToken = localStorage.getItem("accessToken") || "";
+    //   if (accessToken) setAccessToken(accessToken);
+    // });
+    if (localStorage.getItem("refreshToken")) getAccessToken(setAccessToken);
+  }, []);
   const uploadLink = createUploadLink({
     uri: "http://backend04.codebootcamp.co.kr/graphql",
     headers: {

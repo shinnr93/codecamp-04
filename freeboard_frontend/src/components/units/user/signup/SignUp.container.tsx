@@ -17,31 +17,98 @@ export default function SignUp() {
   const [checkPasswordError, setCheckPasswordError] = useState("");
   const [nameError, setNameError] = useState("");
 
-  function onChangeEmail(event) {
+  function onChangeEmail(event: any) {
     setMyEmail(event.target.value);
     if (event.target.value !== "") {
       setEmailError("");
     }
   }
 
-  function onChangeName(event) {
+  function onChangeName(event: any) {
     setMyName(event.target.value);
     if (event.target.value !== "") {
       setPasswordError("");
     }
   }
 
-  function onChangePassword(event) {
+  function onChangePassword(event: any) {
     setMyPassword(event.target.value);
     if (event.target.value !== "") {
       setPasswordError("");
     }
   }
 
-  function onChangeCheckPassword(event) {
+  function onChangeCheckPassword(event: any) {
     setMyCheckPassword(event.target.value);
     if (event.target.value !== "") {
       setCheckPasswordError("");
+    }
+  }
+
+  async function onClickRegister() {
+    // alert("나리!!")
+    // if (myEmail === "") {
+    //   setEmailError("이메일이 입력되지 않았습니다!");
+    // }
+    // if (myName === "") {
+    //   setNameError("이름이 입력되지 않았습니다!");
+    //   return;
+    // }
+    // if (myPassword === "") {
+    //   setPasswordError("비밀번호가 입력되지 않았습니다!");
+    //   return;
+    // }
+    // if (myCheckPassword === "") {
+    //   setCheckPasswordError("확인 비밀번호가 입력되지 않았습니다!");
+    //   return;
+    // }
+
+    // if (/\w+@\w+\.\w+/.test(myEmail) === false) {
+    //   alert("이메일 형식이 아닙니다!");
+    //   return;
+    // }
+    // if (myPassword.length < 4) {
+    //   setPasswordError("비밀번호는 4자리 이상이여야합니다.");
+    //   return;
+    // }
+    // if (myPassword !== myCheckPassword) {
+    //   alert("비밀번호가 같지 않습니다!");
+    //   return;
+    // }
+
+    // try {
+    //   await createUser({
+    //     variables: {
+    //       createUserInput: {
+    //         email: myEmail,
+    //         password: myPassword,
+    //         name: myName,
+    //       },
+    //     },
+    //   });
+    //   alert("회원가입이 완료되었습니다!");
+    //   router.push("/");
+    // } catch (error) {
+    //   if (error instanceof Error) alert(error.message);
+    // }
+    try {
+      const result = await createUser({
+        variables: {
+          createUserInput: {
+            email: myEmail,
+            password: myPassword,
+            name: myName,
+          },
+        },
+      });
+      if (!/\w+@\w+\.\w+/.test(myEmail)) {
+        alert("이메일을 정확히 입력해주세요");
+      } else {
+        alert("회원가입에 성공하셨습니다. 로그인을 진행해주세요.");
+        router.push(`/cats`);
+      }
+    } catch (error) {
+      alert(error.message);
     }
   }
 
@@ -55,6 +122,7 @@ export default function SignUp() {
       onChangePassword={onChangePassword}
       onChangeCheckPassword={onChangeCheckPassword}
       onChangeName={onChangeName}
+      onClickRegister={onClickRegister}
     />
   );
 }

@@ -7,7 +7,7 @@ import {
   SignUpButton,
 } from "./SignUp.styles";
 
-export default function SignUpUI(props) {
+export default function SignUpUI(props: any) {
   return (
     <>
       <Wrapper>
@@ -36,9 +36,9 @@ export default function SignUpUI(props) {
           <Info
             type="password"
             placeholder="비밀번호를 확인해주세요"
-            onChangeCheckPassword={props.checkPasswordError}
+            onChange={props.CheckPasswordError}
           />
-          <SignUpButton onClick={props.onClickSignUp}>
+          <SignUpButton onClick={props.onClickRegister}>
             회원가입하기
           </SignUpButton>
         </TextWrapper>

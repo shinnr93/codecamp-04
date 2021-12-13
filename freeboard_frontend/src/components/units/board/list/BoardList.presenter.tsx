@@ -1,5 +1,5 @@
 import { gql, useQuery } from "@apollo/client";
-import { useState } from "react";
+import { MouseEvent, useState } from "react";
 import { getDate } from "../../../../commons/libraries/utils";
 import {
   IQuery,
@@ -55,6 +55,7 @@ export default function BoardListUI(props) {
     : 0;
 
   const onClickPage = (event: MouseEvent<HTMLSpanElement>) => {
+    alert("나리 <3")
     if (event.target instanceof Element)
       refetch({ page: Number(event.target.id) });
   };

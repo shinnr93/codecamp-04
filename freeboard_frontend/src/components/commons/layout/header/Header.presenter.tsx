@@ -1,11 +1,24 @@
+import {gql, useQuery} from "@apollo/client"
+import { IQuery } from "../../../../commons/types/generated/types";
 import {
   Header,
   LogWrapper,
-  SignInButton,
+  LoginButton,
   SignUpButton,
 } from "./Header.styles";
 
+const FETCH_USER_LOGGED_IN = gql`
+  query fetchUserLoggedIn {
+    fetchUserLoggedIn {
+      email
+      name
+      picture
+    }
+  }
+`
+
 export default function HeaderUI(props) {
+  const { data } = useQuery<Pick<IQuery, "fetchUserLoggedIn">>(FETCH_USER_LOGGED_IN)
   return (
     <Header>
       <div>
@@ -13,7 +26,8 @@ export default function HeaderUI(props) {
       </div>
 
       <LogWrapper>
-        <SignInButton onClick={props.onClickLogin}>login</SignInButton>
+        <LoginButton>환영합니다 {data?.fetchUserLoggedIn.name} 님{" "}</LoginButton>
+        <LoginButton onClick={props.onClickLogin}>login</LoginButton>
         <SignUpButton onClick={props.onClickSignUp}>signup</SignUpButton>
       </LogWrapper>
     </Header>

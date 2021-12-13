@@ -17,8 +17,8 @@ export const LogWrapper = styled.div`
   padding-bottom: 10px;
 `;
 
-export const SignInButton = styled.button`
-  width: 90px;
+export const LoginButton = styled.button`
+  width: 200px;
   height: 45px;
   margin-right: 10px;
   /* background-color: white; */
@@ -31,7 +31,7 @@ export const SignInButton = styled.button`
 `;
 
 export const SignUpButton = styled.button`
-  width: 90px;
+  width: 200px;
   height: 45px;
   margin-right: 10px;
   /* background-color: white; */
