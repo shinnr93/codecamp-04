@@ -55,9 +55,7 @@ export default function BoardListUI(props) {
     : 0;
 
   const onClickPage = (event: MouseEvent<HTMLSpanElement>) => {
-    alert("나리 <3")
-    if (event.target instanceof Element)
-      refetch({ page: Number(event.target.id) });
+    props.searchRefetch({ page: Number(event.target.id) });
   };
 
   function onClickPrevPage() {

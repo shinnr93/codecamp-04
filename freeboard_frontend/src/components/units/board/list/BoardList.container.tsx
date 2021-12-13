@@ -10,7 +10,7 @@ export default function BoardList(props) {
   const router = useRouter()
   const [mySearch, setMySearch] = useState("")
   const { data } = useQuery(FETCH_BOARDS);
-  const { data: searchData} = useQuery(FETCH_BOARDS, {
+  const { data: searchData, refetch: searchRefetch} = useQuery(FETCH_BOARDS, {
     variables: {
       search: router.query.search
     }
@@ -61,6 +61,7 @@ export default function BoardList(props) {
       isSearch={props.isSearch}
       mySearch={onChangeMySearch}
       onSearch={onSearch}
+      searchRefetch={searchRefetch}
     />
   );
 }

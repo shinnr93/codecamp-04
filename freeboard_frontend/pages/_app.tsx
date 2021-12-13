@@ -6,7 +6,6 @@ import {
   InMemoryCache,
   ApolloLink,
 } from "@apollo/client";
-import "antd/dist/antd.css";
 import { createUploadLink } from "apollo-upload-client";
 import { createContext, useEffect, useState } from "react";
 import { getAccessToken } from "../src/commons/libraries/getAccessToken";

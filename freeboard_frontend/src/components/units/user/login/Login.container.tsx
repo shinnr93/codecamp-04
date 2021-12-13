@@ -1,6 +1,6 @@
 import { useMutation } from "@apollo/client";
 import router from "next/router";
-import { useContext, useState } from "react";
+import { ChangeEvent, useContext, useState } from "react";
 import { GlobalContext } from "../../../../../pages/_app";
 import LoginUI from "./Login.presenter";
 import { LOGIN_USER } from "./Login.queries";
@@ -11,7 +11,7 @@ export default function Login() {
   const [myPassword, setMyPassword] = useState("");
   const [loginUser] = useMutation(LOGIN_USER);
 
-  const onChangeMyId = (event) => setMyId(event.target.value);
+  const onChangeMyId = (event: ChangeEvent<HTMLInputElement>) => setMyId(event.target.value);
 
   const onChangeMyPassword = (event) => setMyPassword(event.target.value);
 
