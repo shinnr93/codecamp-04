@@ -4,7 +4,7 @@ import { useState } from "react";
 import SignUpUI from "./SignUp.presenter";
 import { CREATE_USER } from "./SignUp.queries";
 
-export default function SignUp() {
+export default function SignUpPage() {
   const router = useRouter();
   const [createUser] = useMutation(CREATE_USER);
   const [myEmail, setMyEmail] = useState("");
@@ -27,7 +27,7 @@ export default function SignUp() {
   function onChangeName(event: any) {
     setMyName(event.target.value);
     if (event.target.value !== "") {
-      setPasswordError("");
+      setNameError("");
     }
   }
 
@@ -46,51 +46,40 @@ export default function SignUp() {
   }
 
   async function onClickRegister() {
-    // alert("나리!!")
-    // if (myEmail === "") {
-    //   setEmailError("이메일이 입력되지 않았습니다!");
-    // }
-    // if (myName === "") {
-    //   setNameError("이름이 입력되지 않았습니다!");
-    //   return;
-    // }
-    // if (myPassword === "") {
-    //   setPasswordError("비밀번호가 입력되지 않았습니다!");
-    //   return;
-    // }
-    // if (myCheckPassword === "") {
-    //   setCheckPasswordError("확인 비밀번호가 입력되지 않았습니다!");
-    //   return;
-    // }
+    // const { setAccessToken } = useContext(GlobalContext);
+    console.log("나리", myCheckPassword);
+    if (myEmail === "") {
+      setEmailError("이메일이 입력되지 않았습니다");
+    }
 
-    // if (/\w+@\w+\.\w+/.test(myEmail) === false) {
-    //   alert("이메일 형식이 아닙니다!");
-    //   return;
-    // }
-    // if (myPassword.length < 4) {
-    //   setPasswordError("비밀번호는 4자리 이상이여야합니다.");
-    //   return;
-    // }
-    // if (myPassword !== myCheckPassword) {
-    //   alert("비밀번호가 같지 않습니다!");
-    //   return;
-    // }
+    if (myName === "") {
+      setNameError("이름이 입력되지 않았습니다");
+      return;
+    }
+    if (myPassword === "") {
+      setPasswordError("비밀번호가 입력되지 않았습니다");
+      return;
+    }
 
-    // try {
-    //   await createUser({
-    //     variables: {
-    //       createUserInput: {
-    //         email: myEmail,
-    //         password: myPassword,
-    //         name: myName,
-    //       },
-    //     },
-    //   });
-    //   alert("회원가입이 완료되었습니다!");
-    //   router.push("/");
-    // } catch (error) {
-    //   if (error instanceof Error) alert(error.message);
-    // }
+    if (myCheckPassword === "") {
+      setCheckPasswordError("비밀번호가 입력되지 않았습니다");
+      return;
+    }
+
+    if (!/\w+@\w+\.\w+/.test(myEmail)) {
+      alert("이메일을 정확히 입력해주세요");
+      return;
+    }
+
+    if (myPassword.length < 4) {
+      setPasswordError("비밀번호는 4자리 이상이여야합니다.");
+      return;
+    }
+    if (myPassword !== myCheckPassword) {
+      alert("비밀번호가 같지 않습니다");
+      return;
+    }
+
     try {
       const result = await createUser({
         variables: {
@@ -101,12 +90,9 @@ export default function SignUp() {
           },
         },
       });
-      if (!/\w+@\w+\.\w+/.test(myEmail)) {
-        alert("이메일을 정확히 입력해주세요");
-      } else {
-        alert("회원가입에 성공하셨습니다. 로그인을 진행해주세요.");
-        router.push(`/cats`);
-      }
+      // } else {
+      alert("회원가입에 성공하셨습니다. 로그인을 진행해주세요.");
+      router.push(`/cats`);
     } catch (error) {
       alert(error.message);
     }

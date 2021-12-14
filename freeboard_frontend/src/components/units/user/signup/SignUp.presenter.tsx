@@ -36,8 +36,9 @@ export default function SignUpUI(props: any) {
           <Info
             type="password"
             placeholder="비밀번호를 확인해주세요"
-            onChange={props.CheckPasswordError}
+            onChange={props.onChangeCheckPassword}
           />
+          <Error>{props.onChangeCheckPassword}</Error>
           <SignUpButton onClick={props.onClickRegister}>
             회원가입하기
           </SignUpButton>

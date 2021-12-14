@@ -13,7 +13,7 @@ const CREATE_BOARD = gql`
   mutation createBoard($createBoardInput: CreateBoardInput!) {
     createBoard(createBoardInput: $createBoardInput) {
       _id
-      writer
+      writer4
       title
       contents
       images
@@ -47,18 +47,22 @@ export default function ImageUploadPage() {
   }
 
   async function onClickSubmit() {
-    const result = await createBoard({
-      variables: {
-        createBoardInput: {
-          writer: myWriter,
-          password: myPassword,
-          title: myTitle,
-          contents: myContents,
-          images: myImages,
+    try {
+      const result = await createBoard({
+        variables: {
+          createBoardInput: {
+            writer: myWriter,
+            password: myPassword,
+            title: myTitle,
+            contents: myContents,
+            images: myImages,
+          },
         },
-      },
-    });
-    console.log(result)
+      });
+      console.log(result);
+    } catch (error) {
+      alert(error.message);
+    }
   }
 
   async function onChangeFile(event: ChangeEvent<HTMLInputElement>) {
