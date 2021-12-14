@@ -1,7 +1,7 @@
-import { useQuery } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import ItemDetailUI from "./ItemDetail.presenter";
-import { FETCH_USED_ITEM } from "./ItemDetail.queries";
+import { FETCH_USED_ITEM, TOGGLE_USED_ITEM_PICK } from "./ItemDetail.queries";
 
 export default function ItemDetail() {
   const router = useRouter();
@@ -11,7 +11,21 @@ export default function ItemDetail() {
     },
   });
 
-  console.log("애기나리", data?.fetchUseditem);
+  const [toggleUseditemPick] = useMutation(TOGGLE_USED_ITEM_PICK);
 
-  return <ItemDetailUI data={data} />;
+  async function onClickPick() {
+    try {
+      const result = await toggleUseditemPick({
+        variables: {
+          useditemId: router.query.myId,
+        },
+      });
+      console.log("찜", result);
+    } catch (error) {
+      alert("ㅈㅈ");
+      console.log(error.message);
+    }
+  }
+
+  return <ItemDetailUI data={data} onClickPick={onClickPick} />;
 }

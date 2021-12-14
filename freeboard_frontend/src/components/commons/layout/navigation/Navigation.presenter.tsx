@@ -20,6 +20,10 @@ export default function NavigationUI(props) {
         HEALING
       </S.Menu>
       <>|</>
+      <S.Menu id="/mypage" onClick={props.onClickMenu}>
+        MyPage
+      </S.Menu>
+      <>|</>
     </S.Navigation>
   );
 }

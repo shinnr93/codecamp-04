@@ -34,6 +34,7 @@ export default function ItemDetailUI(props) {
                     {props.data?.fetchUseditem.createdAt.slice(0, 10) + " "}
                     {props.data?.fetchUseditem.createdAt.slice(11, 19)}
                   </Date>
+                  <button onClick={props.onClickPick}>찜하기</button>
                 </InfoWrapper>
               </UserPhoto>
             </UserInfo>
