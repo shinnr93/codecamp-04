@@ -7,7 +7,19 @@ export const FETCH_USED_ITEMS = gql`
             _id
             name
             remarks
+            contents
             price
+            tags
+            pickedCount
+            seller {
+                name
+                picture
+            }
+            images
+            useditemAddress {
+                address
+                addressDetail
+            }
         }
     }
 `

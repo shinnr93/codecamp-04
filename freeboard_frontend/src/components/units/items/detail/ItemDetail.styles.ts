@@ -45,7 +45,6 @@ export const InfoWrapper = styled.div`
 `;
 
 export const Seller = styled.div`
-  font-family: myfont;
   font-style: normal;
   font-weight: bold;
   font-size: 16px;
