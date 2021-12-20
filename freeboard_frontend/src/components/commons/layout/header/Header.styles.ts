@@ -42,3 +42,16 @@ export const SignUpButton = styled.button`
     cursor: pointer;
   }
 `;
+
+export const LogoutButton = styled.button`
+  width: 200px;
+  height: 45px;
+  margin-right: 10px;
+  /* background-color: white; */
+  border-radius: 15px;
+  border: none;
+  color: gray;
+  :hover {
+    cursor: pointer;
+  }
+`;
